@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <!-- تعيين مقياس العرض ليتناسب مع الأجهزة المختلفة -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>جائزة المنظمة العربية للسياحة</title>
+    <!-- أيقونة الصفحة -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- أيقونات Font Awesome (الإصدار المجاني)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- خطوط Google -->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet" />
+    <!-- ملف CSS الخاص بالقالب الأساسي -->
+    <link href="css/styles.css" rel="stylesheet" />
+    <style>
+        /* Updated color palette */
+        :root {
+            --blue-light: #a8e6cf;
+            --blue-medium-light: #81d4fa;
+            --blue-medium: #4fc3f7;
+            --blue-dark-medium: #0288d1;
+            --blue-dark: #01579b;
+            --beige-dark: #d2b48c;
+            --beige-light: #f5e4c3;
+            /* Lighter beige for card background */
+            --custom-blue: #6ba7b6;
+            /* Color from the attachment */
+            --sandy-color: #d2b48c;
+            /* Sandy color for "تواصل معنا" section */
+        }
+
+        /* Navbar styling */
+        #mainNav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: white;
+            /* Set navbar background to white */
+            color: var(--blue-dark-medium);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            /* Add subtle shadow */
+            z-index: 1050;
+        }
+
+        #mainNav .nav-link {
+            color: var(--blue-dark-medium) !important;
+        }
+
+        #mainNav .nav-link:hover {
+            color: var(--blue-medium) !important;
+        }
+
+        #mainNav .navbar-brand img {
+            height: 80px;
+        }
+
+        /* Sidebar styling */
+        #userSidebar {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background-color: #f8f9fa;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+            z-index: 1060;
+            transition: right 0.3s ease-in-out;
+        }
+
+        #userSidebar.open {
+            right: 0;
+        }
+
+        #userSidebar .sidebar-header {
+            padding: 15px;
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        #userSidebar .sidebar-content {
+            padding: 15px;
+        }
+
+        /* Modal styling */
+        .modal-awards img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .modal-awards .modal-body {
+            text-align: center;
+        }
+
+        .btn-beige {
+            background-color: #d2b48c;
+            /* Darker beige */
+            color: white;
+            border: none;
+            transition: background-color 0.3s ease;
+            font-size: 1rem;
+            padding: 0.5rem 2.5rem;
+        }
+
+        .btn-beige:hover {
+            background-color: #b89a7a;
+            /* Even darker beige for hover */
+        }
+
+        .btn-custom {
+            background-color: var(--custom-blue);
+            color: white;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: darken(var(--custom-blue), 10%);
+        }
+
+        .btn-sandy {
+            background-color: var(--sandy-color);
+            color: black;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-sandy:hover {
+            background-color: #b89a7a;
+            /* Slightly darker sandy color */
+        }
+
+        @media (max-width: 768px) {
+            .btn-beige {
+                font-size: 0.9rem;
+                padding: 0.4rem 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .btn-beige {
+                font-size: 0.85rem;
+                padding: 0.3rem 1.8rem;
+            }
+        }
+
+        /* Contact section */
+        #contact-section {
+            background: var(--blue-dark) url('assets/img/contact.jpeg') no-repeat center center/cover;
+            color: white;
+        }
+
+        #contactForm {
+            border: 1px solid var(--blue-medium-light);
+            backdrop-filter: blur(10px);
+        }
+
+        #contactForm .form-control {
+            border-radius: 10px;
+            border: 1px solid var(--blue-medium-light);
+        }
+
+        #contactForm .form-control:focus {
+            border-color: var(--blue-light);
+            box-shadow: 0 0 5px rgba(168, 230, 207, 0.5);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--blue-dark-medium);
+            color: white;
+        }
+
+        .footer a {
+            color: var(--blue-light);
+        }
+
+        .footer a:hover {
+            color: var(--blue-medium-light);
+        }
+
+        /* Card styling for "دبلوم مهني تنفيذي" */
+        .bg-dark.text-white {
+            background-color: #7fd1d6 !important;
+            /* Match the provided color */
+            color: #000000 !important;
+            /* Change text color to black */
+        }
+
+        .bg-dark.text-white p {
+            color: #000000 !important;
+            /* Ensure all text inside the card is black */
+            font-size: 1.2rem;
+            /* Slightly larger font size for the main title */
+            font-weight: bold;
+            /* Make text bold */
+        }
+
+        .bg-dark.text-white .subtext {
+            font-size: 1rem;
+            /* Slightly smaller font size for the text under the title */
+            font-weight: normal;
+            /* Normal weight for the subtext */
+            color: #000000 !important;
+            /* Ensure subtext is also black */
+        }
+
+        .bg-dark.text-white a {
+            background-color: #4aa3a8 !important;
+            /* Darker shade for buttons */
+            color: #ffffff !important;
+        }
+
+        .bg-dark.text-white a:hover {
+            background-color: #3a8b91 !important;
+            /* Darker shade for hover */
+        }
+
+        /* Bottom Bar Styling */
+        .bottom-bar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f3e4c7;
+            /* Light sandy background */
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+            z-index: 999;
+        }
+
+        .bottom-bar-item {
+            text-align: center;
+            color: #0a2240;
+            /* Dark blue for text and icons */
+            font-size: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .bottom-bar-item i {
+            font-size: 18px;
+            margin-bottom: 5px;
+            display: block;
+            color: #0a2240;
+            /* Icon color */
+        }
+
+        .bottom-bar-item:hover {
+            color: #4fc3f7;
+            /* Hover effect with medium blue */
+        }
+
+        .bottom-bar-item:hover i {
+            color: #4fc3f7;
+            /* Icon hover effect */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .bottom-bar-item {
+                font-size: 11px;
+            }
+
+            .bottom-bar-item i {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .bottom-bar-item {
+                font-size: 10px;
+            }
+
+            .bottom-bar-item i {
+                font-size: 14px;
+            }
+        }
+
+        .service-box {
+            color: #000000 !important;
+            /* Set text color to black */
+        }
+    </style>
+</head>
+
+<body id="page-top">
+    <section class="masthead">
+
+        <video autoplay muted loop>
+            <source src="assets/img/0313.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div>
+        <source src="assets/img/0313.mp4" type="video/mp4">
+
+        <!-- شريط التنقل الرئيسي -->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <!-- الشعار -->
+                <a class="navbar-brand" href="#page-top">
+                    <img src="assets/img/logo.png" alt="Logo" />
+                </a>
+                <!-- زر القائمة للشاشات الصغيرة -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- قائمة التنقل -->
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto text-end">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                خدماتنا
+                            </a>
+                            <ul class="dropdown-menu text-end" aria-labelledby="servicesDropdown">
+                                <li><a class="dropdown-item" href="programs.html">الاستشارات</a></li>
+                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                        data-bs-target="#awardsModal">الجوائز</a></li>
+                                <li><a class="dropdown-item" href="index3.html">الدبلوم والدورات</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="index.html">الصفحة الرئيسية</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="profile.html"><i class="fas fa-user"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Awards Modal -->
+        <div class="modal fade" id="awardsModal" tabindex="-1" aria-labelledby="awardsModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content modal-awards">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="awardsModalLabel">الجوائز</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="/api/placeholder/400/250" alt="Award 1" />
+                        <p>وصف الجائزة الأولى</p>
+                        <img src="/api/placeholder/400/250" alt="Award 2" />
+                        <p>وصف الجائزة الثانية</p>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- Removed the "إغلاق" button -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Sidebar -->
+        <div id="userSidebar">
+            <div class="sidebar-header">
+                <h5>حسابي</h5>
+            </div>
+            <div class="sidebar-content">
+                <p><strong>البيانات الشخصية:</strong></p>
+                <ul>
+                    <li>الاسم: محمد أحمد</li>
+                    <li>البريد الإلكتروني: example@example.com</li>
+                </ul>
+                <p><strong>الإعدادات:</strong></p>
+                <button class="btn btn-primary w-100 mb-2">تعديل البيانات</button>
+                <p><strong>الدورات المسجلة:</strong></p>
+                <ul>
+                    <li>دورة 1 <button class="btn btn-link">أكمل الدورة</button></li>
+                    <li>دورة 2 <button class="btn btn-link">أكمل الدورة</button></li>
+                </ul>
+                <button class="btn btn-success w-100 mb-2">تسجيل في دورة</button>
+                <button class="btn btn-warning w-100" id="paymentBtn">إكمال عملية الدفع</button>
+            </div>
+        </div>
+
+        <!-- Payment Modal -->
+        <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="paymentModalLabel">طرق الدفع</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="paymentMethod" class="form-label">اختر طريقة الدفع:</label>
+                                <select class="form-select" id="paymentMethod" required>
+                                    <option value="card">بطاقة ائتمان</option>
+                                    <option value="mada">مدى</option>
+                                    <option value="applepay">Apple Pay</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">إتمام الدفع</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Toggle user sidebar
+            document.getElementById("userIcon").addEventListener("click", function () {
+                const sidebar = document.getElementById("userSidebar");
+                sidebar.classList.toggle("open");
+            });
+
+            // Open payment modal
+            document.getElementById("paymentBtn").addEventListener("click", function () {
+                const paymentModal = new bootstrap.Modal(document.getElementById("paymentModal"));
+                paymentModal.show();
+            });
+        </script>
+
+        <!-- شريط التنقل السفلي -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
+            <div class="container-fluid d-flex justify-content-center">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="FAQ.html">الأسئلة الشائعة</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact-section">تواصل معنا</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="howIsUs.html">من نحن</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <!-- رأس الصفحة -->
+        <header class="masthead">
+            <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                <div class="d-flex justify-content-center">
+                    <div class="text-center">
+                        <!-- الشعار الكبير -->
+                        <h1>
+                            <img src="assets/img/LOOGOO.png" class="logo-img" style="height: 200px;" />
+                        </h1>
+                        <h1>
+                        </h1>
+                        <!-- نص الترحيب -->
+                        <h2 class="text-white-50 mx-auto mt-2 mb-5 text-center">
+                            معاً .. نطبق الجودة والتميز
+                        </h2>
+
+                        <!-- زر تسجيل الدخول -->
+                        <div class="bg-dark text-white p-5 rounded shadow-lg mx-auto" style="max-width: 750px;">
+                            <p class="mb-3 text-center lead" style="font-size: 1.2rem;">Online دبلوم مهني تنفيذي</p>
+                            <p class="mb-4 subtext" style="font-size: 1rem;">
+                                جائزة المنظمة العربية للسياحة تعزز الجودة والتميز في القطاع السياحي عبر تكريم المؤسسات
+                                التي تحقق أعلى معايير الأداء والاستدامة. نهدف إلى تسليط الضوء على أفضل المبادرات
+                                والممارسات السياحية التي تسهم في تطوير السياحة العربية وجعلها أكثر تنافسية واستدامة على
+                                المستوى الدولي.
+                            </p>
+                            <a id="howIsUs" class="btn btn-custom rounded-pill px-4 py-2 shadow-lg"
+                                href="howIsUs.html">من نحن</a>
+                            <a id="loginBtn" class="btn btn-custom rounded-pill px-4 py-2 shadow-lg" href="#"
+                                data-bs-toggle="modal" data-bs-target="#authModal">تسجيل الدخول</a>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+        </header>
+
+
+
+
+        <!-- النافذة المنبثقة -->
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <button class="close-btn">&times;</button>
+                <img src="assets\img\popup-image.jpg" alt="إعلان خاص" />
+            </div>
+        </div>
+
+
+
+        <!-- نافذة تسجيل الدخول المنبثقة -->
+        <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content p-4 text-center" style="border-radius: 20px;">
+                    <div class="modal-header border-0">
+                        <h5 id="modalTitle" class="modal-title w-100 fw-bold">تسجيل الدخول</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- نموذج تسجيل الدخول -->
+                        <form id="loginForm">
+                            <input type="email" class="form-control mb-3 text-center" placeholder="البريد الإلكتروني"
+                                required>
+                            <input type="password" class="form-control mb-3 text-center" placeholder="كلمة المرور"
+                                required>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">تذكرني</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">تسجيل الدخول</button>
+                            <p class="mt-3">
+                                لا تملك حساب؟ <a href="#" id="switchToRegister" class="text-primary">إنشاء حساب جديد</a>
+                            </p>
+                        </form>
+                        <!-- نموذج إنشاء الحساب الجديد -->
+                        <form id="registerForm" style="display: none;">
+                            <input type="text" class="form-control mb-3 text-center" placeholder="الاسم الكامل"
+                                required>
+                            <input type="email" class="form-control mb-3 text-center" placeholder="البريد الإلكتروني"
+                                required>
+                            <input type="password" class="form-control mb-3 text-center" placeholder="كلمة المرور"
+                                required>
+                            <button type="submit" class="btn btn-success w-100">إنشاء حساب</button>
+                            <p class="mt-3">
+                                لديك حساب بالفعل؟ <a href="#" id="switchToLogin" class="text-primary">تسجيل الدخول</a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- JavaScript لتبديل النماذج -->
+        <script>
+            document.getElementById("switchToRegister").addEventListener("click", function (event) {
+                event.preventDefault();
+                document.getElementById("loginForm").style.display = "none";
+                document.getElementById("registerForm").style.display = "block";
+                document.getElementById("modalTitle").textContent = "إنشاء حساب جديد";
+            });
+
+            document.getElementById("switchToLogin").addEventListener("click", function (event) {
+                event.preventDefault();
+                document.getElementById("loginForm").style.display = "block";
+                document.getElementById("registerForm").style.display = "none";
+                document.getElementById("modalTitle").textContent = "تسجيل الدخول";
+            });
+        </script>
+
+        <section class="projects-section">
+            <div class="container text-center">
+                <h2 class="section-title">خدماتنا</h2>
+
+                <div class="row services-container">
+                    <!-- الخدمة الأولى -->
+                    <div class="col-md-4 service-item">
+                        <a href="programs.html">
+                            <div class="service-icon mb-3">
+                                <i class="fas fa-lightbulb" style="color: #6ba7b6; font-size: 4rem;"></i>
+                            </div>
+                            <h3>الاستشارات</h3>
+                        </a>
+                    </div>
+
+                    <!-- الخدمة الثانية -->
+                    <div class="col-md-4 service-item">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#awardsModal">
+                            <div class="service-icon mb-3">
+                                <i class="fas fa-award" style="color: #6ba7b6; font-size: 4rem;"></i>
+                            </div>
+                            <h3>الجوائز</h3>
+                        </a>
+                    </div>
+
+                    <!-- الخدمة الثالثة -->
+                    <div class="col-md-4 service-item">
+                        <a href="index3.html">
+                            <div class="service-icon mb-3">
+                                <i class="fas fa-graduation-cap" style="color: #6ba7b6; font-size: 4rem;"></i>
+                            </div>
+                            <h3>الدبلوم والدورات</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="projects-section">
+            <div class="container text-center">
+                <div class="row align-items-center">
+                    <!-- المربعات اليسرى -->
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="service-box"
+                                    style="background: linear-gradient(to bottom, #f5e4c3, #d2b48c);"
+                                    data-bs-toggle="modal" data-bs-target="#serviceModal1">
+                                    نقل المعارف والمهارات
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="service-box"
+                                    style="background: linear-gradient(to bottom, #f5e4c3, #c7a67c);"
+                                    data-bs-toggle="modal" data-bs-target="#serviceModal2">
+                                    برامج الإرشاد التسويقي
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="service-box"
+                                    style="background: linear-gradient(to bottom, #f5e4c3, #c7a67c);"
+                                    data-bs-toggle="modal" data-bs-target="#serviceModal3">
+                                    الخدمة السياحية
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="service-box"
+                                    style="background: linear-gradient(to bottom, #f5e4c3, #c7a67c);"
+                                    data-bs-toggle="modal" data-bs-target="#serviceModal4">
+                                    أنظمة وقوانين
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المستطيل الأوسط -->
+                    <div class="col-md-4">
+                        <div class="main-box">
+                            <h2>تكامل المعايير في الجودة السياحية</h2>
+                        </div>
+                    </div>
+
+                    <!-- المربعات اليمنى -->
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="service-box"
+                                    style="background: linear-gradient(to bottom, #f5e4c3, #d2b48c);"
+                                    data-bs-toggle="modal" data-bs-target="#serviceModal5">
+                                    إدارة المؤسسة
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="service-box"
+                                    style="background: linear-gradient(to bottom, #f5e4c3, #d2b48c);"
+                                    data-bs-toggle="modal" data-bs-target="#serviceModal6">
+                                    مقاصد ووجهات سياحية
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="service-box"
+                                    style="background: linear-gradient(to bottom, #f5e4c3, #d2b48c);"
+                                    data-bs-toggle="modal" data-bs-target="#serviceModal7">
+                                    النقل وسهولة الوصول
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="service-box"
+                                    style="background: linear-gradient(to bottom, #f5e4c3, #d2b48c);"
+                                    data-bs-toggle="modal" data-bs-target="#serviceModal8">
+                                    السكن والمرافق
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- النوافذ المنبثقة (Modals) -->
+        <!-- Modal للخدمة 1 -->
+        <div class="modal fade" id="serviceModal1" tabindex="-1" aria-labelledby="serviceModalLabel1"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="serviceModalLabel1">الخدمة 1 - التفاصيل</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>هنا يمكن إضافة تفاصيل أكثر عن الخدمة 1.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal للخدمة 2 -->
+        <div class="modal fade" id="serviceModal2" tabindex="-1" aria-labelledby="serviceModalLabel2"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="serviceModalLabel2">الخدمة 2 - التفاصيل</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>هنا يمكن إضافة تفاصيل أكثر عن الخدمة 2.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal للخدمة 3 -->
+        <div class="modal fade" id="serviceModal3" tabindex="-1" aria-labelledby="serviceModalLabel3"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="serviceModalLabel3">الخدمة 3 - التفاصيل</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>هنا يمكن إضافة تفاصيل أكثر عن الخدمة 3.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal للخدمة 4 -->
+        <div class="modal fade" id="serviceModal4" tabindex="-1" aria-labelledby="serviceModalLabel4"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="serviceModalLabel4">الخدمة 4 - التفاصيل</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>هنا يمكن إضافة تفاصيل أكثر عن الخدمة 4.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal للخدمة 5 -->
+        <div class="modal fade" id="serviceModal5" tabindex="-1" aria-labelledby="serviceModalLabel5"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="serviceModalLabel5">الخدمة 5 - التفاصيل</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>هنا يمكن إضافة تفاصيل أكثر عن الخدمة 5.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal للخدمة 6 -->
+        <div class="modal fade" id="serviceModal6" tabindex="-1" aria-labelledby="serviceModalLabel6"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="serviceModalLabel6">الخدمة 6 - التفاصيل</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>هنا يمكن إضافة تفاصيل أكثر عن الخدمة 6.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal للخدمة 7 -->
+        <div class="modal fade" id="serviceModal7" tabindex="-1" aria-labelledby="serviceModalLabel7"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="serviceModalLabel7">الخدمة 7 - التفاصيل</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>هنا يمكن إضافة تفاصيل أكثر عن الخدمة 7.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal للخدمة 8 -->
+        <div class="modal fade" id="serviceModal8" tabindex="-1" aria-labelledby="serviceModalLabel8"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="serviceModalLabel8">الخدمة 8 - التفاصيل</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>هنا يمكن إضافة تفاصيل أكثر عن الخدمة 8.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- قسم "المشاريع" (Projects) -->
+        <section class="projects-section" id="projects">
+            <div class="container px-4 px-lg-5">
+                <div class="row mb-5">
+                    <!-- المشروعان الجانبيان (يمين) - في عمود واحد -->
+                    <div class="col-lg-4">
+                        <!-- المشروع الأول (المربع العلوي) -->
+                        <div class="card mb-4 h-48">
+                            <div class="row g-0 h-100">
+                                <div class="col-md-7 bg-black text-white h-100">
+                                    <div class="card-body d-flex flex-column h-100 justify-content-center">
+                                        <h5 class="card-title">جوائز المنظمة</h5>
+                                        <p class="card-text text-white-50 small">An example of where you can put an
+                                            image of a project.</p>
+                                        <a href="Awards.html" class="btn btn-primary btn-sm mt-auto">عرض المزيد</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <img class="img-fluid h-100 w-100 object-cover"
+                                        src="assets/img/البلدان/fa4e72_945060d4aee6459a95c954aa73f29b91~mv2.avif"
+                                        alt="الصورة" style="object-fit: cover;" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- المشروع الثاني (المربع السفلي) -->
+                        <div class="card h-48">
+                            <div class="row g-0 h-100">
+                                <div class="col-md-7 bg-black text-white h-100">
+                                    <div class="card-body d-flex flex-column h-100 justify-content-center">
+                                        <h5 class="card-title">برامج التدريب</h5>
+                                        <p class="card-text text-white-50 small">Another example of a project with its
+                                            respective description.</p>
+                                        <a href="programs.html" class="btn btn-primary btn-sm mt-auto">عرض المزيد</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <img class="img-fluid h-100 w-100 object-cover"
+                                        src="assets/img/البلدان/fa4e72_f151f36e95dd4eaca8cd7ca3937aca15~mv2.avif"
+                                        alt="..." style="object-fit: cover;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المشروع المميز (يسار) -->
+                    <div class="col-lg-8 mb-4">
+                        <div class="card h-100">
+                            <!-- صورة المشروع المميز - مستطيل عرضي -->
+                            <img class="card-img-top img-fluid"
+                                src="assets/img/البلدان/fa4e72_7e55eb76c8a942558eb856c3846aa954~mv2.avif" alt="..." />
+                            <!-- تفاصيل المشروع المميز تحت الصورة -->
+                            <div class="card-body text-center text-lg-right">
+                                <h4 class="card-title">أخصائي جودة وتميز سياحي</h4>
+                                <p class="card-text text-black-70">Online دبلوم مهني تنفيذي</p>
+                                <p class="card-text text-black-50">
+                                    يتكون الدبلوم من مجموعة مقررات دراسية في الجودة والتميز تركز على تطبيق المعايير
+                                    والإرشادات القياسية ودمجها في خدمات ومنتجات المجال السياحي.
+                                </p>
+                                <!-- أزرار التسجيل وعرض المزيد -->
+                                <div class="text-center mt-3">
+                                    <a href="index2.html" class="btn btn-primary mx-2">عرض المزيد</a>
+                                    <a href="#subscribeModal" class="btn btn-primary mx-2" data-bs-toggle="modal"
+                                        data-bs-target="#subscribeModal">التسجيل</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- نافذة منبثقة للاشتراك -->
+        <div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="subscribeModalLabel">الاشتراك في الدبلوم</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- نموذج الاشتراك -->
+                        <form>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">*الاسم الكامل</label>
+                                <input type="text" class="form-control" id="name" placeholder="محمد أحمد" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">*البريد الإلكتروني</label>
+                                <input type="email" class="form-control" id="email" placeholder="e.g., name@example.com"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="birthdate" class="form-label">*تاريخ الميلاد</label>
+                                <div class="d-flex">
+                                    <input type="number" class="form-control" id="day" placeholder="اليوم" required
+                                        style="max-width: 80px;">
+                                    <input type="number" class="form-control mx-2" id="month" placeholder="الشهر"
+                                        required style="max-width: 80px;">
+                                    <input type="number" class="form-control" id="year" placeholder="السنة" required
+                                        style="max-width: 80px;">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">*رقم الهاتف</label>
+                                <input type="tel" class="form-control" id="phone" placeholder="e.g., +966" required>
+                            </div>
+                            <div class="mb-3">
+                                <select class="form-select" id="country" required>
+                                    <option value="" disabled selected>أختار من القائمة</option>
+                                    <option value="sa">السعودية</option>
+                                    <option value="ae">الإمارات</option>
+                                    <option value="kw">الكويت</option>
+                                    <option value="qa">قطر</option>
+                                    <option value="bh">البحرين</option>
+                                    <option value="om">سلطنة عمان</option>
+                                    <option value="ye">اليمن</option>
+                                    <option value="jo">الأردن</option>
+                                    <option value="ps">فلسطين</option>
+                                    <option value="sy">سوريا</option>
+                                    <option value="lb">لبنان</option>
+                                    <option value="eg">مصر</option>
+                                    <option value="tn">تونس</option>
+                                    <option value="dz">الجزائر</option>
+                                    <option value="ma">المغرب</option>
+                                    <option value="ly">ليبيا</option>
+                                    <option value="sd">السودان</option>
+                                    <option value="so">الصومال</option>
+                                    <option value="iq">العراق</option>
+                                    <option value="mr">موريتانيا</option>
+                                    <option value="dj">جيبوتي</option>
+                                    <option value="km">جزر القمر</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="linkedin" class="form-label">الملف الشخصي على اللينكدان أو الموقع الشخصي
+                                    (اختياري)</label>
+                                <input type="url" class="form-control" id="linkedin"
+                                    placeholder="https://linkedin.com/in/mohammed">
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="confirm" required>
+                                <label class="form-check-label" for="confirm">
+                                    *أؤكد أن جميع المعلومات المقدمة صحيحة ودقيقة على حد علمي.
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- زر إغلاق النافذة -->
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                        <!-- زر إرسال التسجيل -->
+                        <button type="submit" class="btn btn-primary" id="submitBtn">إرسال التسجيل</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم "شركاء النجاح" -->
+        <section id="partners-section" class="py-5" style="background-color: #f8f9fa;">
+            <div class="container text-center">
+                <h2 class="mb-4">شركاء النجاح</h2>
+                <div class="partners-slider-wrapper overflow-hidden">
+                    <div class="partners-slider d-flex">
+                        <!-- Repeat logos for seamless infinite scrolling -->
+                        <div class="partner-item mx-3">
+                            <img src="assets/img/WadiMakkah.png" alt="Partner 1" class="rounded-circle"
+                                style="height: 110px; object-fit: cover;" />
+                        </div>
+                        <div class="partner-item mx-3">
+                            <img src="assets/img/uality.png" alt="Partner 2" class="rounded-circle"
+                                style="height: 120px; object-fit: cover;" />
+                        </div>
+                        <div class="partner-item mx-3">
+                            <img src="assets/img/UQU.png" alt="Partner 3" class="rounded-circle"
+                                style="height: 120px; object-fit: cover;" />
+                        </div>
+                        <!-- Duplicate logos for seamless effect -->
+                        <div class="partner-item mx-3">
+                            <img src="assets/img/WadiMakkah.png" alt="Partner 1" class="rounded-circle"
+                                style="height: 110px; object-fit: cover;" />
+                        </div>
+                        <div class="partner-item mx-3">
+                            <img src="assets/img/uality.png" alt="Partner 2" class="rounded-circle"
+                                style="height: 120px; object-fit: cover;" />
+                        </div>
+                        <div class="partner-item mx-3">
+                            <img src="assets/img/UQU.png" alt="Partner 3" class="rounded-circle"
+                                style="height: 120px; object-fit: cover;" />
+                        </div>
+                        <!-- Third copy for seamless scrolling -->
+                        <div class="partner-item mx-3">
+                            <img src="assets/img/WadiMakkah.png" alt="Partner 1" class="rounded-circle"
+                                style="height: 110px; object-fit: cover;" />
+                        </div>
+                        <div class="partner-item mx-3">
+                            <img src="assets/img/uality.png" alt="Partner 2" class="rounded-circle"
+                                style="height: 120px; object-fit: cover;" />
+                        </div>
+                        <div class="partner-item mx-3">
+                            <img src="assets/img/UQU.png" alt="Partner 3" class="rounded-circle"
+                                style="height: 120px; object-fit: cover;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .partners-slider-wrapper {
+                    position: relative;
+                    width: 100%;
+                    height: 150px;
+                    overflow: hidden;
+                }
+
+                .partners-slider {
+                    display: flex;
+                    animation: slide-in 10s linear infinite;
+                }
+
+                @keyframes slide-in {
+                    0% {
+                        transform: translateX(100%);
+                    }
+
+                    100% {
+                        transform: translateX(-100%);
+                    }
+                }
+
+                .partner-item {
+                    flex: 0 0 auto;
+                }
+
+                /* Pause animation on hover */
+                .partners-slider-wrapper:hover .partners-slider {
+                    animation-play-state: paused;
+                }
+
+                /* Responsive adjustments */
+                @media (max-width: 768px) {
+                    .partner-item img {
+                        height: 90px;
+                    }
+                }
+
+                @media (max-width: 576px) {
+                    .partner-item img {
+                        height: 70px;
+                    }
+                }
+            </style>
+        </section>
+
+        <!-- قسم "الفعاليات والأخبار" بتصميم عصري -->
+        <section class="news-events-section py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mb-5">
+                        <h2 class="main-title">الفعاليات والأخبار</h2>
+                        <div class="title-line"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- الفعالية الأولى -->
+                    <div class="col-md-4 mb-4">
+                        <div class="event-card">
+                            <div class="event-img-container">
+                                <img src="/api/placeholder/400/250" alt="الفعالية الأولى" class="img-fluid">
+                                <div class="event-date">
+                                    <span class="day">15</span>
+                                    <span class="month">أبريل</span>
+                                </div>
+                            </div>
+                            <div class="event-content">
+                                <h4>مؤتمر التكنولوجيا السنوي</h4>
+                                <div class="event-info">
+                                    <span><i class="fas fa-map-marker-alt"></i> الرياض</span>
+                                    <span><i class="far fa-clock"></i> 10:00 صباحًا</span>
+                                </div>
+                                <p>انضم إلينا في مؤتمر التكنولوجيا السنوي حيث نستعرض أحدث التقنيات والابتكارات...</p>
+                                <button class="btn btn-custom rounded-pill px-4 py-2 shadow-lg"
+                                    onclick="openEventModal('event1')">عرض التفاصيل</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- الفعالية الثانية -->
+                    <div class="col-md-4 mb-4">
+                        <div class="event-card">
+                            <div class="event-img-container">
+                                <img src="/api/placeholder/400/250" alt="الفعالية الثانية" class="img-fluid">
+                                <div class="event-date">
+                                    <span class="day">20</span>
+                                    <span class="month">مايو</span>
+                                </div>
+                            </div>
+                            <div class="event-content">
+                                <h4>افتتاح الفرع الجديد</h4>
+                                <div class="event-info">
+                                    <span><i class="fas fa-map-marker-alt"></i> جدة</span>
+                                    <span><i class="far fa-clock"></i> 5:00 مساءً</span>
+                                </div>
+                                <p>يسرنا دعوتكم لحضور حفل افتتاح فرعنا الجديد في مدينة جدة...</p>
+                                <button class="btn btn-custom rounded-pill px-4 py-2 shadow-lg"
+                                    onclick="openEventModal('event2')">عرض التفاصيل</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- الفعالية الثالثة -->
+                    <div class="col-md-4 mb-4">
+                        <div class="event-card">
+                            <div class="event-img-container">
+                                <img src="/api/placeholder/400/250" alt="الفعالية الثالثة" class="img-fluid">
+                                <div class="event-date">
+                                    <span class="day">20</span>
+                                    <span class="month">يونيو</span>
+                                </div>
+                            </div>
+                            <div class="event-content">
+                                <h4>إطلاق الخدمة الجديدة</h4>
+                                <div class="event-info">
+                                    <span><i class="fas fa-map-marker-alt"></i> الرياض</span>
+                                    <span><i class="far fa-clock"></i> 1:00 ظهرًا</span>
+                                </div>
+                                <p>نفخر بإطلاق خدمتنا الجديدة التي ستوفر حلولًا متكاملة للعملاء والشركات...</p>
+                                <button class="btn btn-custom rounded-pill px-4 py-2 shadow-lg"
+                                    onclick="openEventModal('event3')">عرض التفاصيل</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal للفعاليات -->
+        <div id="eventModal" class="custom-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modalTitle"></h3>
+                    <span class="close-btn" onclick="closeEventModal()">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div id="event1Details" class="event-details">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="modal-image">
+                                    <img src="/api/placeholder/600/400" alt="مؤتمر التكنولوجيا" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="event-meta">
+                                    <div class="meta-item">
+                                        <i class="far fa-calendar-alt"></i>
+                                        <span>١٥ أبريل ٢٠٢٥</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="far fa-clock"></i>
+                                        <span>١٠:٠٠ صباحًا - ٤:٠٠ مساءً</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>فندق الريتز كارلتون، الرياض</span>
+                                    </div>
+                                </div>
+
+                                <div class="event-description">
+                                    <h5>عن الفعالية</h5>
+                                    <p>انضم إلينا في مؤتمر التكنولوجيا السنوي حيث نستعرض أحدث التقنيات والابتكارات في
+                                        مجال تكنولوجيا المعلومات. سيتضمن المؤتمر محاضرات وورش عمل مقدمة من خبراء في
+                                        المجال.</p>
+                                    <p>ستتاح الفرصة للتواصل مع رواد الصناعة والاطلاع على أحدث الاتجاهات التكنولوجية.</p>
+                                </div>
+
+                                <div class="speakers">
+                                    <h5>المتحدثون الرئيسيون</h5>
+                                    <ul>
+                                        <li>د. أحمد العبدالله - خبير الذكاء الاصطناعي</li>
+                                        <li>م. سارة الحربي - مديرة تطوير البرمجيات</li>
+                                        <li>د. خالد المنصور - أستاذ هندسة الحاسبات</li>
+                                    </ul>
+                                </div>
+
+                                <div class="modal-actions">
+                                    <a href="#" class="action-btn register-btn">التسجيل الآن</a>
+                                    <a href="#" class="action-btn download-btn">تحميل التفاصيل (PDF)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="event2Details" class="event-details">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="modal-image">
+                                    <img src="/api/placeholder/600/400" alt="افتتاح الفرع الجديد" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="event-meta">
+                                    <div class="meta-item">
+                                        <i class="far fa-calendar-alt"></i>
+                                        <span>٣ مايو ٢٠٢٥</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="far fa-clock"></i>
+                                        <span>٥:٠٠ مساءً - ٨:٠٠ مساءً</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>شارع الأمير محمد بن فهد، جدة</span>
+                                    </div>
+                                </div>
+
+                                <div class="event-description">
+                                    <h5>عن الفعالية</h5>
+                                    <p>يسرنا دعوتكم لحضور حفل افتتاح فرعنا الجديد في مدينة جدة. سيكون هناك عروض خاصة
+                                        وخصومات حصرية للضيوف.</p>
+                                    <p>سيتضمن الحفل مجموعة من الأنشطة الترفيهية والضيافة المميزة للحضور، بالإضافة إلى
+                                        فرصة التعرف على خدماتنا الجديدة.</p>
+                                </div>
+
+                                <div class="program">
+                                    <h5>الفقرات الرئيسية للحفل</h5>
+                                    <ul>
+                                        <li>كلمة الرئيس التنفيذي</li>
+                                        <li>عرض تقديمي للخدمات الجديدة</li>
+                                        <li>جولة في الفرع الجديد</li>
+                                        <li>حفل غداء للضيوف</li>
+                                    </ul>
+                                </div>
+
+                                <div class="modal-actions">
+                                    <a href="#" class="action-btn register-btn">تأكيد الحضور</a>
+                                    <a href="#" class="action-btn download-btn">تحميل الدعوة (PDF)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="event3Details" class="event-details">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="modal-image">
+                                    <img src="/api/placeholder/600/400" alt="إطلاق الخدمة الجديدة" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="event-meta">
+                                    <div class="meta-item">
+                                        <i class="far fa-calendar-alt"></i>
+                                        <span>٢٠ يونيو ٢٠٢٥</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="far fa-clock"></i>
+                                        <span>١:٠٠ ظهرًا - ٣:٠٠ ظهرًا</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>مركز الملك عبدالله المالي، الرياض</span>
+                                    </div>
+                                </div>
+
+                                <div class="event-description">
+                                    <h5>عن الفعالية</h5>
+                                    <p>نفخر بإطلاق خدمتنا الجديدة التي ستوفر حلولًا متكاملة للعملاء. انضموا إلينا في حفل
+                                        الإطلاق الرسمي لمعرفة كيف يمكن لهذه الخدمة تلبية احتياجاتكم.</p>
+                                    <p>سيقدم فريقنا عرضًا تفصيليًا للخدمة الجديدة وكيفية الاستفادة منها، بالإضافة إلى
+                                        عروض خاصة للمسجلين أثناء الحفل.</p>
+                                </div>
+
+                                <div class="features">
+                                    <h5>مميزات الخدمة الجديدة</h5>
+                                    <ul>
+                                        <li>تقنيات متطورة تساعد في تحسين الأداء</li>
+                                        <li>واجهة سهلة الاستخدام</li>
+                                        <li>دعم فني على مدار الساعة</li>
+                                        <li>تكامل مع الأنظمة الحالية</li>
+                                    </ul>
+                                </div>
+
+                                <div class="modal-actions">
+                                    <a href="#" class="action-btn register-btn">التسجيل المبكر</a>
+                                    <a href="#" class="action-btn download-btn">تحميل البروشور (PDF)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- قسم "التسجيل" (Signup) -->
+
+        <section id="contact-section" class="py-5 position-relative">
+            <div class="contact-overlay"></div>
+            <div class="container text-center position-relative">
+                <h2 class="mb-4 fw-bold text-white" style="font-family: 'Cairo', sans-serif; font-size: 2.5rem;">تواصل
+                    معنا</h2>
+                <div class="d-flex justify-content-center gap-3 mb-4">
+                    <button id="emailToggleBtn" class="btn btn-sandy rounded-pill px-4 py-2 shadow-lg">
+                        تواصل عبر البريد الإلكتروني
+                    </button>
+                    <button id="whatsappToggleBtn" class="btn btn-sandy rounded-pill px-4 py-2 shadow-lg">
+                        <i class="fab fa-whatsapp me-2"></i>تواصل عبر واتساب
+                    </button>
+                </div>
+                <div id="contactFormWrapper" class="d-none">
+                    <form id="contactForm" class="p-4 rounded shadow-lg mx-auto"
+                        style="max-width: 450px; background: rgba(255, 255, 255, 0.9); border-radius: 15px;">
+                        <div class="mb-3">
+                            <input type="text" class="form-control form-control-lg text-end" placeholder="اسمك الكامل"
+                                required
+                                style="background: #fdf8f0; border: none; border-radius: 10px; color: #6b5e4e; font-size: 1rem; padding: 1rem;">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control form-control-lg text-end"
+                                placeholder="بريدك الإلكتروني" required
+                                style="background: #fdf8f0; border: none; border-radius: 10px; color: #6b5e4e; font-size: 1rem; padding: 1rem;">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control form-control-lg text-end" rows="4"
+                                placeholder="اكتب رسالتك هنا" required
+                                style="background: #fdf8f0; border: none; border-radius: 10px; color: #6b5e4e; font-size: 1rem; padding: 1rem;"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="btn btn-sandy w-100 rounded-pill px-4 py-2 shadow-lg">إرسال</button>
+                    </form>
+                </div>
+            </div>
+            <a href="https://api.whatsapp.com/send/?phone=966599099224" target="_blank" class="whatsapp-icon">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <style>
+                #contact-section {
+                    background: url('assets/img/contact.jpeg') no-repeat center center/cover;
+                    /* Use contact.jpeg as background */
+                    position: relative;
+                    color: white;
+                }
+
+                .contact-overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.5);
+                    /* Optional dark overlay */
+                    z-index: 1;
+                }
+
+                #contact-section .container {
+                    z-index: 2;
+                }
+
+                .btn-beige {
+                    background-color: #f1d6a5;
+                    /* Beige color */
+                    color: #000;
+                    border: none;
+                    transition: background-color 0.3s ease;
+                    font-size: 1rem;
+                    padding: 0.5rem 2.5rem;
+                    /* Increased padding for wider buttons */
+                }
+
+                .btn-beige:hover {
+                    background-color: #e3cba8;
+                }
+
+                #contactForm {
+                    border: 1px solid #ddd;
+                    backdrop-filter: blur(10px);
+                    /* Adds a subtle blur effect */
+                }
+
+                #contactForm .form-control {
+                    border-radius: 10px;
+                    border: 1px solid #ccc;
+                }
+
+                #contactForm .form-control:focus {
+                    border-color: #f1d6a5;
+                    box-shadow: 0 0 5px rgba(241, 214, 165, 0.5);
+                }
+
+                .whatsapp-icon {
+                    position: fixed;
+                    bottom: 20px;
+                    right: 20px;
+                    background-color: #25d366;
+                    color: white;
+                    font-size: 24px;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                    z-index: 1000;
+                }
+
+                .whatsapp-icon:hover {
+                    background-color: #1ebe57;
+                }
+
+                @media (max-width: 768px) {
+                    #contactForm {
+                        max-width: 100%;
+                        /* Full width on smaller devices */
+                        padding: 2rem;
+                    }
+
+                    .btn-beige {
+                        font-size: 0.9rem;
+                        /* Adjust button size for smaller screens */
+                        padding: 0.4rem 2rem;
+                        /* Adjust padding for smaller screens */
+                    }
+                }
+
+                @media (max-width: 576px) {
+                    .d-flex.gap-3 {
+                        flex-direction: column;
+                    }
+
+                    .btn-beige {
+                        font-size: 0.85rem;
+                        /* Further adjust button size for very small screens */
+                        padding: 0.3rem 1.8rem;
+                        /* Further adjust padding for very small screens */
+                    }
+                }
+            </style>
+        </section>
+        <script>
+            document.getElementById("emailToggleBtn").addEventListener("click", function () {
+                const formWrapper = document.getElementById("contactFormWrapper");
+                formWrapper.classList.toggle("d-none");
+            });
+
+            document.getElementById("whatsappToggleBtn").addEventListener("click", function () {
+                window.open("https://api.whatsapp.com/send/?phone=966599099224", "_blank");
+            });
+        </script>
+
+
+        <!-- التذييل -->
+        <!-- فوتر الموقع -->
+        <footer class="footer position-relative"
+            style="background: url('assets/img/رمل.png') no-repeat center center/cover; color: white;">
+            <div class="footer-overlay"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1;">
+            </div>
+            <div class="container px-4 px-lg-5 py-5 position-relative" style="z-index: 2;">
+                <div class="row">
+                    <div class="col-lg-4 mb-4 text-center">
+                        <!-- الشعار -->
+                        <div class="mb-4">
+                            <img src="assets/img/uality.png" alt="شعار الشركة" class="img-fluid"
+                                style="max-width: 90px;" />
+                        </div>
+                        <p>
+                            إدارة وتشغيل شركة تطبيقات الجودة الإدارية
+                        </p>
+                    </div>
+
+                    <div class="col-lg-4 mb-4 text-center">
+                        <!-- تواصل معنا -->
+                        <h5 class="mb-3"><strong>تواصل معنا</strong></h5>
+                        <p>المملكة العربية السعودية، مكة المكرمة، 24268</p>
+                        <p>
+                            <a href="mailto:info@qetourism.com" class="text-white">
+                                <i class="fas fa-envelope me-2"></i>info@qetourism.com
+                            </a>
+                        </p>
+
+                        <!-- روابط التواصل الاجتماعي -->
+                        <div class="social d-flex justify-content-center mt-4">
+                            <a class="mx-2 text-white"
+                                href="https://www.facebook.com/people/%D8%AC%D8%A7%D8%A6%D8%B2%D8%A9-%D8%A7%D9%84%D9%85%D9%86%D8%B8%D9%85%D8%A9-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-%D9%84%D9%84%D8%B3%D9%8A%D8%A7%D8%AD%D8%A9-%D9%81%D9%8A-%D8%A7%D9%84%D8%AC%D9%88%D8%AF%D8%A9-%D9%88%D8%A7%D9%84%D8%AA%D9%85%D9%8A%D8%B2-%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%AD%D9%8A/61572204562727/"
+                                target="_blank">
+                                <i class="fab fa-facebook-f fa-lg"></i>
+                            </a>
+                            <a class="mx-2 text-white"
+                                href="https://www.instagram.com/arabtourismorg?igsh=MW14Z3E2MTFnaWpycQ=="
+                                target="_blank">
+                                <i class="fab fa-instagram fa-lg"></i>
+                            </a>
+                            <a class="mx-2 text-white" href="https://x.com/qetourism?s=21" target="_blank">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/X_logo_2023.svg" alt="X"
+                                    style="height: 24px; vertical-align: middle;" />
+                            </a>
+
+                            <a class="mx-2 text-white"
+                                href="https://www.linkedin.com/company/%D8%AC%D8%A7%D8%A6%D8%B2%D8%A9-%D8%A7%D9%84%D9%85%D9%86%D8%B8%D9%85%D8%A9-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-%D9%84%D8%B3%D9%8A%D8%A7%D8%AD%D8%A9-%D9%81%D9%8A-%D8%A7%D9%84%D8%AC%D9%88%D8%AF%D8%A9-%D9%88%D8%A7%D9%84%D8%AA%D9%85%D9%8A%D8%B2-%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%AD%D9%8A/about/?viewAsMember=true"
+                                target="_blank">
+                                <i class="fab fa-linkedin fa-lg"></i>
+                            </a>
+                            <a class="mx-2 text-white"
+                                href="https://api.whatsapp.com/send/?phone=966599099224&text&type=phone_number&app_absent=0"
+                                target="_blank">
+                                <i class="fab fa-whatsapp fa-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-4 text-center">
+                        <!-- روابط السياسات والحقوق -->
+                        <h5 class="mb-3"><strong>الروابط</strong></h5>
+                        <div class="d-flex flex-column">
+                            <a href="can.html" class="text-white mb-2">بيان إمكانية الوصول</a>
+                            <a href="back.html" class="text-white mb-2">سياسة الاسترجاع</a>
+                            <a href="sc.html" class="text-white mb-2">سياسة الخصوصية</a>
+                            <a href="x.html" class="text-white mb-2">الشروط والأحكام</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- حقوق الملكية -->
+                <hr class="my-4" style="border-color: rgba(255,255,255,0.2);">
+                <p class="text-center mb-0">
+                    &copy; 2025 جائزة المنظمة العربية للسياحة في الجودة والتميز السياحي
+                </p>
+            </div>
+        </footer>
+
+        <!-- ملفات JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+        <script>
+            document.getElementById("submitBtn").addEventListener("click", function (event) {
+                event.preventDefault(); // منع الإرسال الافتراضي للنموذج
+                window.location.href = "pay.html"; // استبدل "payment.html" برابط صفحة الدفع الفعلي
+            });
+        </script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                let popup = document.getElementById("popup");
+                let closeBtn = document.querySelector(".close-btn");
+
+                // إظهار النافذة عند تحميل الصفحة
+                popup.style.display = "flex";
+
+                // توجيه المستخدم عند الضغط على النافذة المنبثقة
+                popup.addEventListener("click", function () {
+                    window.location.href = "index2.html"; // استبدل بالرابط المطلوب
+                });
+
+                // منع التوجيه عند الضغط على زر الإغلاق فقط
+                closeBtn.addEventListener("click", function (event) {
+                    event.stopPropagation(); // منع الحدث من الانتقال للأعلى
+                    popup.style.display = "none";
+                });
+            });
+        </script>
+
+        <!-- إضافة ملفات JavaScript الخاصة بـ Bootstrap في أسفل الصفحة -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Bottom Bar -->
+        <div class="bottom-bar">
+            <div class="bottom-bar-item">
+                <i class="fas fa-home"></i>
+                <span>الرئيسية</span>
+            </div>
+            <div class="bottom-bar-item">
+                <i class="fas fa-info-circle"></i>
+                <span>من نحن</span>
+            </div>
+            <div class="bottom-bar-item">
+                <i class="fas fa-envelope"></i>
+                <span>تواصل معنا</span>
+            </div>
+            <div class="bottom-bar-item">
+                <i class="fas fa-question-circle"></i>
+                <span>الأسئلة</span>
+            </div>
+        </div>
+
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+
+استبدلي كود الزر الموجود في header بالكود التالي:
+html
+نسخ
+تحرير
+<a id="loginBtn" class="btn btn-primary" href="#">تسجيل الدخول</a>
+<img id="userAvatar" src="assets/img/avatar.png" alt="Avatar" style="height: 40px; display: none; border-radius: 50%;" />
+📌 هذا الزر سيعمل مع السكريبت لفتح نافذة تسجيل الدخول، وصورة الأفاتار ستظهر بعد تسجيل الدخول.
+
+أضيفي كود النافذة المنبثقة (modal) داخل body، ويفضل قبل </body> مباشرة:
+html
+نسخ
+تحرير
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>تسجيل الدخول</h2>
+        <input type="text" id="username" placeholder="اسم المستخدم" required>
+        <input type="password" id="password" placeholder="كلمة المرور" required>
+        <button id="submitLogin">دخول</button>
+    </div>
+</div>
+تأكدي من إضافة الـ CSS الخاص بتنسيق النافذة المنبثقة:
+css
+نسخ
+تحرير
+/* تصميم النافذة المنبثقة */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+}
+
+.modal-content input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal-content button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.close {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+}
+أضيفي كود JavaScript قبل </body> مباشرة:
+html
+نسخ
+تحرير
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    let loginBtn = document.getElementById("loginBtn");
+    let loginModal = document.getElementById("loginModal");
+    let closeModal = document.querySelector(".close");
+    let submitLogin = document.getElementById("submitLogin");
+    let userAvatar = document.getElementById("userAvatar");
+
+    // فتح النافذة عند الضغط على تسجيل الدخول
+    loginBtn.addEventListener("click", function () {
+        loginModal.style.display = "flex";
+    });
+
+    // إغلاق النافذة عند الضغط على ×
+    closeModal.addEventListener("click", function () {
+        loginModal.style.display = "none";
+    });
+
+    // تسجيل الدخول (محاكاة تسجيل الدخول)
+    submitLogin.addEventListener("click", function () {
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+
+        if (username && password) {
+            alert("تم تسجيل الدخول بنجاح!");
+            loginModal.style.display = "none"; // إغلاق النافذة
+            loginBtn.style.display = "none"; // إخفاء زر تسجيل الدخول
+            userAvatar.style.display = "block"; // إظهار صورة المستخدم
+        } else {
+            alert("يرجى إدخال بيانات صحيحة.");
+        }
+    });
+
+    // إغلاق النافذة عند النقر خارجها
+    window.addEventListener("click", function (event) {
+        if (event.target === loginModal) {
+            loginModal.style.display = "none";
+        }
+    });
+});
+</script>
