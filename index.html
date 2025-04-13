@@ -19,6 +19,7 @@
         rel="stylesheet" />
     <!-- ملف CSS الخاص بالقالب الأساسي -->
     <link href="css/styles.css" rel="stylesheet" />
+    
     <style>
         /* Updated color palette */
         :root {
@@ -188,14 +189,14 @@
 
         /* Card styling for "دبلوم مهني تنفيذي" */
         .bg-dark.text-white {
-            background-color: #7fd1d6 !important;
+            background-color: #405c7b !important;
             /* Match the provided color */
             color: #000000 !important;
             /* Change text color to black */
         }
 
         .bg-dark.text-white p {
-            color: #000000 !important;
+            color: #ffffff !important;
             /* Ensure all text inside the card is black */
             font-size: 1.2rem;
             /* Slightly larger font size for the main title */
@@ -208,18 +209,18 @@
             /* Slightly smaller font size for the text under the title */
             font-weight: normal;
             /* Normal weight for the subtext */
-            color: #000000 !important;
+            color: #ffffff !important;
             /* Ensure subtext is also black */
         }
 
         .bg-dark.text-white a {
-            background-color: #4aa3a8 !important;
+            background-color: #405c7b !important;
             /* Darker shade for buttons */
             color: #ffffff !important;
         }
 
         .bg-dark.text-white a:hover {
-            background-color: #3a8b91 !important;
+            background-color: #405c7b !important;
             /* Darker shade for hover */
         }
 
@@ -324,9 +325,11 @@
                                 خدماتنا
                             </a>
                             <ul class="dropdown-menu text-end" aria-labelledby="servicesDropdown">
-                                <li><a class="dropdown-item" href="programs.html">الاستشارات</a></li>
+                                <li><a class="dropdown-item" href="programs.html">برامج الدبلوم </a></li>
                                 <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
                                         data-bs-target="#awardsModal">الجوائز</a></li>
+                                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                            data-bs-target="#contactModal">الاستشارات</a></li>
                                 <li><a class="dropdown-item" href="index3.html">الدبلوم والدورات</a></li>
                             </ul>
                         </li>
@@ -334,6 +337,15 @@
                         <li class="nav-item">
                             <a class="nav-link" href="profile.html"><i class="fas fa-user"></i></a>
                         </li>
+
+                            
+        <!-- خانة البحث -->
+        <li class="nav-item">
+            <form class="d-flex ms-auto">
+                <input class="form-control me-2" type="search" placeholder="بحث" aria-label="بحث">
+                <button class="btn btn-outline-light" type="submit">بحث</button>
+            </li>
+
                     </ul>
                 </div>
             </div>
@@ -422,25 +434,23 @@
             });
         </script>
 
-        <!-- شريط التنقل السفلي -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
-            <div class="container-fluid d-flex justify-content-center">
-                <ul class="navbar-nav">
+       <!-- شريط التنقل السفلي -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
+    <div class="container-fluid d-flex justify-content-center">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="FAQ.html">الأسئلة الشائعة</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contact-section">تواصل معنا</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="howIsUs.html">من نحن</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="FAQ.html">الأسئلة الشائعة</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact-section">تواصل معنا</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="howIsUs.html">من نحن</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
 
 
         <!-- رأس الصفحة -->
@@ -461,7 +471,7 @@
 
                         <!-- زر تسجيل الدخول -->
                         <div class="bg-dark text-white p-5 rounded shadow-lg mx-auto" style="max-width: 750px;">
-                            <p class="mb-3 text-center lead" style="font-size: 1.2rem;">Online دبلوم مهني تنفيذي</p>
+                            <p class="mb-3 text-center lead" style="font-size: 1.2rem;">من نحن </p>
                             <p class="mb-4 subtext" style="font-size: 1rem;">
                                 جائزة المنظمة العربية للسياحة تعزز الجودة والتميز في القطاع السياحي عبر تكريم المؤسسات
                                 التي تحقق أعلى معايير الأداء والاستدامة. نهدف إلى تسليط الضوء على أفضل المبادرات
@@ -469,7 +479,7 @@
                                 المستوى الدولي.
                             </p>
                             <a id="howIsUs" class="btn btn-custom rounded-pill px-4 py-2 shadow-lg"
-                                href="howIsUs.html">من نحن</a>
+                                href="howIsUs.html">اكتشف اكثر </a>
                             <a id="loginBtn" class="btn btn-custom rounded-pill px-4 py-2 shadow-lg" href="#"
                                 data-bs-toggle="modal" data-bs-target="#authModal">تسجيل الدخول</a>
 
@@ -561,14 +571,14 @@
 
                 <div class="row services-container">
                     <!-- الخدمة الأولى -->
-                    <div class="col-md-4 service-item">
-                        <a href="programs.html">
-                            <div class="service-icon mb-3">
-                                <i class="fas fa-lightbulb" style="color: #6ba7b6; font-size: 4rem;"></i>
-                            </div>
-                            <h3>الاستشارات</h3>
-                        </a>
-                    </div>
+<div class="col-md-4 service-item" id="consultationService">
+    <a href="javascript:void(0);" id="openModalLink">
+        <div class="service-icon mb-3">
+            <i class="fas fa-lightbulb" style="color: #6ba7b6; font-size: 4rem;"></i>
+        </div>
+        <h3>الاستشارات</h3>
+    </a>
+</div>
 
                     <!-- الخدمة الثانية -->
                     <div class="col-md-4 service-item">
@@ -677,6 +687,33 @@
         </section>
 
 
+<!-- النافذة المنبثقة -->
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="contactModalLabel">نحن هنا لخدمتكم وتقديم الاستشارات بكل سعادة.</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <input type="text" class="form-control text-end" placeholder="اسمك الكامل" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control text-end" placeholder="بريدك الإلكتروني" required>
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control text-end" rows="4" placeholder="تواصل معنا لاستشارتك" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">إرسال</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 
         <!-- النوافذ المنبثقة (Modals) -->
@@ -686,11 +723,11 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="serviceModalLabel1">الخدمة 1 - التفاصيل</h5>
+                        <h5 class="modal-title" id="serviceModalLabel1"> نقل المعارف والمهارات</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>هنا يمكن إضافة تفاصيل أكثر عن الخدمة 1.</p>
+                        <p>تدريب العاملين في القطاع السياحي على المهارات اللازمة لتقديم خدمات متميزة.</p>
                     </div>
                 </div>
             </div>
@@ -702,11 +739,11 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="serviceModalLabel2">الخدمة 2 - التفاصيل</h5>
+                        <h5 class="modal-title" id="serviceModalLabel2">  برامج الإرشاد التسويقي </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>هنا يمكن إضافة تفاصيل أكثر عن الخدمة 2.</p>
+                        <p>استخدام استراتيجيات تسويقية مبتكرة لجذب السياح وتعزيز العلامة التجارية.</p>
                     </div>
                 </div>
             </div>
@@ -718,11 +755,11 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="serviceModalLabel3">الخدمة 3 - التفاصيل</h5>
+                        <h5 class="modal-title" id="serviceModalLabel3">  الخدمة السياحية </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>هنا يمكن إضافة تفاصيل أكثر عن الخدمة 3.</p>
+                        <p>التركيز على تقديم خدمات متميزة تلبي توقعات السياح، مثل تحسين جودة الطعام، النظافة، والضيافة.</p>
                     </div>
                 </div>
             </div>
@@ -734,11 +771,11 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="serviceModalLabel4">الخدمة 4 - التفاصيل</h5>
+                        <h5 class="modal-title" id="serviceModalLabel4">  أنظمة وقوانين</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>هنا يمكن إضافة تفاصيل أكثر عن الخدمة 4.</p>
+                        <p>تطبيق قوانين واضحة ومحددة لضمان سلامة السياح وحماية البيئة، مثل قوانين الحفاظ على المواقع الأثرية.</p>
                     </div>
                 </div>
             </div>
@@ -750,11 +787,11 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="serviceModalLabel5">الخدمة 5 - التفاصيل</h5>
+                        <h5 class="modal-title" id="serviceModalLabel5"> إدارة المؤسسة</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>هنا يمكن إضافة تفاصيل أكثر عن الخدمة 5.</p>
+                        <p>تعزيز الكفاءة الإدارية من خلال تدريب الموظفين وتطبيق أنظمة إدارة الجودة الشاملة.</p>
                     </div>
                 </div>
             </div>
@@ -766,11 +803,11 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="serviceModalLabel6">الخدمة 6 - التفاصيل</h5>
+                        <h5 class="modal-title" id="serviceModalLabel6">مقاصد ووجهات سياحية</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>هنا يمكن إضافة تفاصيل أكثر عن الخدمة 6.</p>
+                        <p>تطوير الوجهات السياحية لتكون جذابة ومستدامة، مع توفير معلومات دقيقة للسياح.</p>
                     </div>
                 </div>
             </div>
@@ -782,11 +819,11 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="serviceModalLabel7">الخدمة 7 - التفاصيل</h5>
+                        <h5 class="modal-title" id="serviceModalLabel7"> النقل وسهولة الوصول</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>هنا يمكن إضافة تفاصيل أكثر عن الخدمة 7.</p>
+                        <p>تحسين وسائل النقل والبنية التحتية لتسهيل الوصول إلى الوجهات السياحية.</p>
                     </div>
                 </div>
             </div>
@@ -798,11 +835,11 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="serviceModalLabel8">الخدمة 8 - التفاصيل</h5>
+                        <h5 class="modal-title" id="serviceModalLabel8"> السكن والمرافق</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>هنا يمكن إضافة تفاصيل أكثر عن الخدمة 8.</p>
+                        <p>ضمان توفير أماكن إقامة مريحة ومرافق عالية الجودة.</p>
                     </div>
                 </div>
             </div>
@@ -1338,132 +1375,7 @@
                         <button type="submit"
                             class="btn btn-sandy w-100 rounded-pill px-4 py-2 shadow-lg">إرسال</button>
                     </form>
-                </div>
-            </div>
-            <a href="https://api.whatsapp.com/send/?phone=966599099224" target="_blank" class="whatsapp-icon">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-            <style>
-                #contact-section {
-                    background: url('assets/img/contact.jpeg') no-repeat center center/cover;
-                    /* Use contact.jpeg as background */
-                    position: relative;
-                    color: white;
-                }
-
-                .contact-overlay {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(0, 0, 0, 0.5);
-                    /* Optional dark overlay */
-                    z-index: 1;
-                }
-
-                #contact-section .container {
-                    z-index: 2;
-                }
-
-                .btn-beige {
-                    background-color: #f1d6a5;
-                    /* Beige color */
-                    color: #000;
-                    border: none;
-                    transition: background-color 0.3s ease;
-                    font-size: 1rem;
-                    padding: 0.5rem 2.5rem;
-                    /* Increased padding for wider buttons */
-                }
-
-                .btn-beige:hover {
-                    background-color: #e3cba8;
-                }
-
-                #contactForm {
-                    border: 1px solid #ddd;
-                    backdrop-filter: blur(10px);
-                    /* Adds a subtle blur effect */
-                }
-
-                #contactForm .form-control {
-                    border-radius: 10px;
-                    border: 1px solid #ccc;
-                }
-
-                #contactForm .form-control:focus {
-                    border-color: #f1d6a5;
-                    box-shadow: 0 0 5px rgba(241, 214, 165, 0.5);
-                }
-
-                .whatsapp-icon {
-                    position: fixed;
-                    bottom: 20px;
-                    right: 20px;
-                    background-color: #25d366;
-                    color: white;
-                    font-size: 24px;
-                    width: 50px;
-                    height: 50px;
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                    z-index: 1000;
-                }
-
-                .whatsapp-icon:hover {
-                    background-color: #1ebe57;
-                }
-
-                @media (max-width: 768px) {
-                    #contactForm {
-                        max-width: 100%;
-                        /* Full width on smaller devices */
-                        padding: 2rem;
-                    }
-
-                    .btn-beige {
-                        font-size: 0.9rem;
-                        /* Adjust button size for smaller screens */
-                        padding: 0.4rem 2rem;
-                        /* Adjust padding for smaller screens */
-                    }
-                }
-
-                @media (max-width: 576px) {
-                    .d-flex.gap-3 {
-                        flex-direction: column;
-                    }
-
-                    .btn-beige {
-                        font-size: 0.85rem;
-                        /* Further adjust button size for very small screens */
-                        padding: 0.3rem 1.8rem;
-                        /* Further adjust padding for very small screens */
-                    }
-                }
-            </style>
-        </section>
-        <script>
-            document.getElementById("emailToggleBtn").addEventListener("click", function () {
-                const formWrapper = document.getElementById("contactFormWrapper");
-                formWrapper.classList.toggle("d-none");
-            });
-
-            document.getElementById("whatsappToggleBtn").addEventListener("click", function () {
-                window.open("https://api.whatsapp.com/send/?phone=966599099224", "_blank");
-            });
-        </script>
-
-
-        <!-- التذييل -->
-        <!-- فوتر الموقع -->
-        <footer class="footer position-relative"
-            style="background: url('assets/img/رمل.png') no-repeat center center/cover; color: white;">
-            <div class="footer-overlay"
+                    <footer class="footer position-relative"
                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1;">
             </div>
             <div class="container px-4 px-lg-5 py-5 position-relative" style="z-index: 2;">
@@ -1538,6 +1450,129 @@
                 </p>
             </div>
         </footer>
+                </div>
+            </div>
+            <a href="https://api.whatsapp.com/send/?phone=966599099224" target="_blank" class="whatsapp-icon">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <style>
+                #contact-section {
+                    background: url('assets/img/contact.jpeg') no-repeat center center/cover;
+                    /* Use contact.jpeg as background */
+                    position: relative;
+                    color: white;
+                }
+
+                .contact-overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.5);
+                    /* Optional dark overlay */
+                    z-index: 1;
+                }
+
+                #contact-section .container {
+                    z-index: 2;
+                }
+
+                .btn-beige {
+                    background-color: #f1d6a5;
+                    /* Beige color */
+                    color: #000;
+                    border: none;
+                    transition: background-color 0.3s ease;
+                    font-size: 1rem;
+                    padding: 0.5rem 2.5rem;
+                    /* Increased padding for wider buttons */
+                }
+
+                .btn-beige:hover {
+                    background-color: #e3cba8;
+                }
+
+                #contactForm {
+                    border: 1px solid #ddd;
+                    backdrop-filter: blur(10px);
+                    /* Adds a subtle blur effect */
+                }
+
+                #contactForm .form-control {
+                    border-radius: 10px;
+                    border: 1px solid #ccc;
+                }
+
+                #contactForm .form-control:focus {
+                    border-color: #f1d6a5;
+                    box-shadow: 0 0 5px rgba(241, 214, 165, 0.5);
+                }
+
+                .whatsapp-icon {
+                    position: fixed;
+                    bottom: 20px;
+                    right: 20px;
+                    background-color: #25d366;
+                    color: white; 
+                    font-size: 24px;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                    z-index: 1000;
+                }
+
+                .whatsapp-icon:hover {
+                    background-color: #1ebe57;
+                }
+
+                @media (max-width: 768px) {
+                    #contactForm {
+                        max-width: 100%;
+                        /* Full width on smaller devices */
+                        padding: 2rem;
+                    }
+
+                    .btn-beige {
+                        font-size: 0.9rem;
+                        /* Adjust button size for smaller screens */
+                        padding: 0.4rem 2rem;
+                        /* Adjust padding for smaller screens */
+                    }
+                }
+
+                @media (max-width: 576px) {
+                    .d-flex.gap-3 {
+                        flex-direction: column;
+                    }
+
+                    .btn-beige {
+                        font-size: 0.85rem;
+                        /* Further adjust button size for very small screens */
+                        padding: 0.3rem 1.8rem;
+                        /* Further adjust padding for very small screens */
+                    }
+                }
+            </style>
+        </section>
+        <script>
+            document.getElementById("emailToggleBtn").addEventListener("click", function () {
+                const formWrapper = document.getElementById("contactFormWrapper");
+                formWrapper.classList.toggle("d-none");
+            });
+
+            document.getElementById("whatsappToggleBtn").addEventListener("click", function () {
+                window.open("https://api.whatsapp.com/send/?phone=966599099224", "_blank");
+            });
+        </script>
+
+
+  
+        
 
         <!-- ملفات JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
@@ -1549,26 +1584,30 @@
             });
         </script>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                let popup = document.getElementById("popup");
-                let closeBtn = document.querySelector(".close-btn");
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const popup = document.getElementById("popup");
+      const closeBtn = document.querySelector(".close-btn");
 
-                // إظهار النافذة عند تحميل الصفحة
-                popup.style.display = "flex";
+      // التحقق إذا تم إغلاق النافذة مسبقًا
+      if (!localStorage.getItem("popupClosed")) {
+        popup.style.display = "flex";
+      }
 
-                // توجيه المستخدم عند الضغط على النافذة المنبثقة
-                popup.addEventListener("click", function () {
-                    window.location.href = "index2.html"; // استبدل بالرابط المطلوب
-                });
+      // التوجيه عند الضغط على النافذة
+      popup.addEventListener("click", function () {
+        window.location.href = "index2.html";
+      });
 
-                // منع التوجيه عند الضغط على زر الإغلاق فقط
-                closeBtn.addEventListener("click", function (event) {
-                    event.stopPropagation(); // منع الحدث من الانتقال للأعلى
-                    popup.style.display = "none";
-                });
-            });
-        </script>
+      // إغلاق النافذة وحفظ الحالة في localStorage
+      closeBtn.addEventListener("click", function (event) {
+        event.stopPropagation(); // منع التوجيه
+        popup.style.display = "none";
+        localStorage.setItem("popupClosed", "true");
+      });
+    });
+  </script>
+
 
         <!-- إضافة ملفات JavaScript الخاصة بـ Bootstrap في أسفل الصفحة -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
@@ -1576,25 +1615,53 @@
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Bottom Bar -->
-        <div class="bottom-bar">
-            <div class="bottom-bar-item">
-                <i class="fas fa-home"></i>
-                <span>الرئيسية</span>
-            </div>
-            <div class="bottom-bar-item">
-                <i class="fas fa-info-circle"></i>
-                <span>من نحن</span>
-            </div>
-            <div class="bottom-bar-item">
-                <i class="fas fa-envelope"></i>
-                <span>تواصل معنا</span>
-            </div>
-            <div class="bottom-bar-item">
-                <i class="fas fa-question-circle"></i>
-                <span>الأسئلة</span>
-            </div>
-        </div>
+        
+
+        
+
+        <!-- JavaScript لربط الخدمة بالنموذج -->
+<script>
+    // استماع إلى النقر على العنصر "الاستشارات"
+    document.getElementById('openModalLink').addEventListener('click', function() {
+        var modal = new bootstrap.Modal(document.getElementById('contactModal'));
+        modal.show();
+    });
+</script>
+
+  <!-- ملفات JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+  <script src="js/scripts.js"></script>
+
+  <!-- إضافة ملفات JavaScript الخاصة بـ Bootstrap في أسفل الصفحة -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- تضمين JavaScript -->
+<script>
+    let lastScrollTop = 0; // تخزين موقع التمرير السابق
+const bottomNavbar = document.querySelector('.navbar.fixed-bottom'); // تحديد شريط التنقل السفلي
+
+window.addEventListener('scroll', () => {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+        // إذا كان المستخدم يمرر لأسفل
+        bottomNavbar.classList.add('navbar-hidden');
+    } else {
+        // إذا كان المستخدم يمرر لأعلى
+        bottomNavbar.classList.remove('navbar-hidden');
+    }
+
+    lastScrollTop = scrollTop; // تحديث موقع التمرير السابق
+});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
 
 </body>
 
