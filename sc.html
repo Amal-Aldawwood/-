@@ -19,6 +19,277 @@
         rel="stylesheet" />
     <!-- ملفات الأنماط الخاصة بالقالب -->
     <link href="css/styles.css" rel="stylesheet" />
+
+    <style>
+        /* Updated color palette */
+        :root {
+            --blue-light: #a8e6cf;
+            --blue-medium-light: #81d4fa;
+            --blue-medium: #4fc3f7;
+            --blue-dark-medium: #0288d1;
+            --blue-dark: #01579b;
+            --beige-dark: #d2b48c;
+            --beige-light: #f5e4c3;
+            /* Lighter beige for card background */
+            --custom-blue: #6ba7b6;
+            /* Color from the attachment */
+            --sandy-color: #d2b48c;
+            /* Sandy color for "تواصل معنا" section */
+        }
+
+        /* Navbar styling */
+        #mainNav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: white;
+            /* Set navbar background to white */
+            color: var(--blue-dark-medium);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            /* Add subtle shadow */
+            z-index: 1050;
+        }
+
+        #mainNav .nav-link {
+            color: var(--blue-dark-medium) !important;
+        }
+
+        #mainNav .nav-link:hover {
+            color: var(--blue-medium) !important;
+        }
+
+        #mainNav .navbar-brand img {
+            height: 80px;
+        }
+
+        /* Sidebar styling */
+        #userSidebar {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background-color: #f8f9fa;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+            z-index: 1060;
+            transition: right 0.3s ease-in-out;
+        }
+
+        #userSidebar.open {
+            right: 0;
+        }
+
+        #userSidebar .sidebar-header {
+            padding: 15px;
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        #userSidebar .sidebar-content {
+            padding: 15px;
+        }
+
+        /* Modal styling */
+        .modal-awards img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .modal-awards .modal-body {
+            text-align: center;
+        }
+
+        .btn-beige {
+            background-color: #d2b48c;
+            /* Darker beige */
+            color: white;
+            border: none;
+            transition: background-color 0.3s ease;
+            font-size: 1rem;
+            padding: 0.5rem 2.5rem;
+        }
+
+        .btn-beige:hover {
+            background-color: #b89a7a;
+            /* Even darker beige for hover */
+        }
+
+        .btn-custom {
+            background-color: var(--custom-blue);
+            color: white;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: darken(var(--custom-blue), 10%);
+        }
+
+        .btn-sandy {
+            background-color: var(--sandy-color);
+            color: black;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-sandy:hover {
+            background-color: #b89a7a;
+            /* Slightly darker sandy color */
+        }
+
+        @media (max-width: 768px) {
+            .btn-beige {
+                font-size: 0.9rem;
+                padding: 0.4rem 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .btn-beige {
+                font-size: 0.85rem;
+                padding: 0.3rem 1.8rem;
+            }
+        }
+
+        /* Contact section */
+        #contact-section {
+            background: var(--blue-dark) url('assets/img/contact.jpeg') no-repeat center center/cover;
+            color: white;
+        }
+
+        #contactForm {
+            border: 1px solid var(--blue-medium-light);
+            backdrop-filter: blur(10px);
+        }
+
+        #contactForm .form-control {
+            border-radius: 10px;
+            border: 1px solid var(--blue-medium-light);
+        }
+
+        #contactForm .form-control:focus {
+            border-color: var(--blue-light);
+            box-shadow: 0 0 5px rgba(168, 230, 207, 0.5);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--blue-dark-medium);
+            color: white;
+        }
+
+        .footer a {
+            color: var(--blue-light);
+        }
+
+        .footer a:hover {
+            color: var(--blue-medium-light);
+        }
+
+        /* Card styling for "دبلوم مهني تنفيذي" */
+        .bg-dark.text-white {
+            background-color: #405c7b !important;
+            /* Match the provided color */
+            color: #000000 !important;
+            /* Change text color to black */
+        }
+
+        .bg-dark.text-white p {
+            color: #ffffff !important;
+            /* Ensure all text inside the card is black */
+            font-size: 1.2rem;
+            /* Slightly larger font size for the main title */
+            font-weight: bold;
+            /* Make text bold */
+        }
+
+        .bg-dark.text-white .subtext {
+            font-size: 1rem;
+            /* Slightly smaller font size for the text under the title */
+            font-weight: normal;
+            /* Normal weight for the subtext */
+            color: #ffffff !important;
+            /* Ensure subtext is also black */
+        }
+
+        .bg-dark.text-white a {
+            background-color: #405c7b !important;
+            /* Darker shade for buttons */
+            color: #ffffff !important;
+        }
+
+        .bg-dark.text-white a:hover {
+            background-color: #405c7b !important;
+            /* Darker shade for hover */
+        }
+
+        /* Bottom Bar Styling */
+        .bottom-bar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f3e4c7;
+            /* Light sandy background */
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+            z-index: 999;
+        }
+
+        .bottom-bar-item {
+            text-align: center;
+            color: #0a2240;
+            /* Dark blue for text and icons */
+            font-size: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .bottom-bar-item i {
+            font-size: 18px;
+            margin-bottom: 5px;
+            display: block;
+            color: #0a2240;
+            /* Icon color */
+        }
+
+        .bottom-bar-item:hover {
+            color: #4fc3f7;
+            /* Hover effect with medium blue */
+        }
+
+        .bottom-bar-item:hover i {
+            color: #4fc3f7;
+            /* Icon hover effect */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .bottom-bar-item {
+                font-size: 11px;
+            }
+
+            .bottom-bar-item i {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .bottom-bar-item {
+                font-size: 10px;
+            }
+
+            .bottom-bar-item i {
+                font-size: 14px;
+            }
+        }
+
+        .service-box {
+            color: #000000 !important;
+            /* Set text color to black */
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -29,22 +300,14 @@
             Your browser does not support the video tag.
         </video>
         <div class="video-overlay"></div>
-        
         <source src="assets/img/0313.mp4" type="video/mp4">
-        <div class="position-absolute top-50 end-0 translate-middle-y p-4" style="right: 5%;">
-            <h1 class="mb-4">سياسة الخصوصية</h1>
-            <a href="index.html" class="btn btn-outline-light btn-lg me-2"><i class="fas fa-arrow-left me-2"></i>
-                رجوع</a>
-        </div>
-    </header>
-
 
         <!-- شريط التنقل الرئيسي -->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
                 <!-- الشعار -->
                 <a class="navbar-brand" href="#page-top">
-                    <img src="assets/img/logo.png" alt="Logo" style="height: 100px; margin-right: 70px;" />
+                    <img src="assets/img/logo.png" alt="Logo" />
                 </a>
                 <!-- زر القائمة للشاشات الصغيرة -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -53,35 +316,31 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-
-
                 <!-- قائمة التنقل -->
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto text-end">
-
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="programsDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">خدماتنا</a>
-                            <ul class="dropdown-menu" aria-labelledby="programsDropdown">
-                                <li><a class="dropdown-item" href="programs.html">الاستشارات</a></li>
-                                <li><a class="dropdown-item" href="Awards.html">الجائزة</a></li>
-                                <li><a class="dropdown-item" href="index3.html"> الدبلوم و الدورات </a></li>
+                            <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                خدماتنا
+                            </a>
+                            <ul class="dropdown-menu text-end" aria-labelledby="servicesDropdown">
+                                <li><a class="dropdown-item" href="programs.html">برامج الدبلوم </a></li>
+                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                        data-bs-target="#awardsModal">الجوائز</a></li>
+                                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                            data-bs-target="#contactModal">الاستشارات</a></li>
+                                <li><a class="dropdown-item" href="index3.html">الدبلوم والدورات</a></li>
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="index.html">الصفحة الرئيسية</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="profile.html"><i class="fas fa-user"></i></a>
+                        </li>
                     </ul>
-
-                    <!-- أيقونة حساب المستخدم -->
-                    <li class="nav-item" id="userIconContainer">
-                    </li>
-                    <!-- أيقونة حساب المستخدم -->
-                    <li class="nav-item" id="userIconContainer">
-                        <!-- سيتم تغيير هذه الأيقونة بناءً على حالة تسجيل الدخول باستخدام JavaScript -->
-                    </li>
                 </div>
+            </div>
         </nav>
-
-        
        <!-- شريط التنقل السفلي -->
        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
         <div class="container-fluid d-flex justify-content-center">
@@ -245,13 +504,38 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script src="js/scripts.js"></script>
 
     <!-- إضافة ملفات JavaScript الخاصة بـ Bootstrap في أسفل الصفحة -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    
+<!-- تضمين JavaScript -->
+<script>
+    let lastScrollTop = 0; // تخزين موقع التمرير السابق
+const bottomNavbar = document.querySelector('.navbar.fixed-bottom'); // تحديد شريط التنقل السفلي
+
+window.addEventListener('scroll', () => {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+        // إذا كان المستخدم يمرر لأسفل
+        bottomNavbar.classList.add('navbar-hidden');
+    } else {
+        // إذا كان المستخدم يمرر لأعلى
+        bottomNavbar.classList.remove('navbar-hidden');
+    }
+
+    lastScrollTop = scrollTop; // تحديث موقع التمرير السابق
+});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </body>
 
 </html>
