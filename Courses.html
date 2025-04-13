@@ -21,78 +21,348 @@
     <link href="css/styles.css" rel="stylesheet" />
 </head>
 
+<link href="css/styles.css" rel="stylesheet" />
+   
+<style>
+    /* Updated color palette */
+    :root {
+        --blue-light: #a8e6cf;
+        --blue-medium-light: #81d4fa;
+        --blue-medium: #4fc3f7;
+        --blue-dark-medium: #0288d1;
+        --blue-dark: #01579b;
+        --beige-dark: #d2b48c;
+        --beige-light: #f5e4c3;
+        /* Lighter beige for card background */
+        --custom-blue: #6ba7b6;
+        /* Color from the attachment */
+        --sandy-color: #d2b48c;
+        /* Sandy color for "تواصل معنا" section */
+    }
+
+    /* Navbar styling */
+    #mainNav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: white;
+        /* Set navbar background to white */
+        color: var(--blue-dark-medium);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        /* Add subtle shadow */
+        z-index: 1050;
+    }
+
+    #mainNav .nav-link {
+        color: var(--blue-dark-medium) !important;
+    }
+
+    #mainNav .nav-link:hover {
+        color: var(--blue-medium) !important;
+    }
+
+    #mainNav .navbar-brand img {
+        height: 80px;
+    }
+
+    /* Sidebar styling */
+    #userSidebar {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 300px;
+        height: 100%;
+        background-color: #f8f9fa;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+        z-index: 1060;
+        transition: right 0.3s ease-in-out;
+    }
+
+    #userSidebar.open {
+        right: 0;
+    }
+
+    #userSidebar .sidebar-header {
+        padding: 15px;
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    #userSidebar .sidebar-content {
+        padding: 15px;
+    }
+
+    /* Modal styling */
+    .modal-awards img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 15px;
+    }
+
+    .modal-awards .modal-body {
+        text-align: center;
+    }
+
+    .btn-beige {
+        background-color: #d2b48c;
+        /* Darker beige */
+        color: white;
+        border: none;
+        transition: background-color 0.3s ease;
+        font-size: 1rem;
+        padding: 0.5rem 2.5rem;
+    }
+
+    .btn-beige:hover {
+        background-color: #b89a7a;
+        /* Even darker beige for hover */
+    }
+
+    .btn-custom {
+        background-color: var(--custom-blue);
+        color: white;
+        border: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-custom:hover {
+        background-color: darken(var(--custom-blue), 10%);
+    }
+
+    .btn-sandy {
+        background-color: var(--sandy-color);
+        color: black;
+        border: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-sandy:hover {
+        background-color: #b89a7a;
+        /* Slightly darker sandy color */
+    }
+
+    @media (max-width: 768px) {
+        .btn-beige {
+            font-size: 0.9rem;
+            padding: 0.4rem 2rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .btn-beige {
+            font-size: 0.85rem;
+            padding: 0.3rem 1.8rem;
+        }
+    }
+
+    /* Contact section */
+    #contact-section {
+        background: var(--blue-dark) url('assets/img/contact.jpeg') no-repeat center center/cover;
+        color: white;
+    }
+
+    #contactForm {
+        border: 1px solid var(--blue-medium-light);
+        backdrop-filter: blur(10px);
+    }
+
+    #contactForm .form-control {
+        border-radius: 10px;
+        border: 1px solid var(--blue-medium-light);
+    }
+
+    #contactForm .form-control:focus {
+        border-color: var(--blue-light);
+        box-shadow: 0 0 5px rgba(168, 230, 207, 0.5);
+    }
+
+    /* Footer */
+    .footer {
+        background-color: var(--blue-dark-medium);
+        color: white;
+    }
+
+    .footer a {
+        color: var(--blue-light);
+    }
+
+    .footer a:hover {
+        color: var(--blue-medium-light);
+    }
+
+    /* Card styling for "دبلوم مهني تنفيذي" */
+    .bg-dark.text-white {
+        background-color: #405c7b !important;
+        /* Match the provided color */
+        color: #000000 !important;
+        /* Change text color to black */
+    }
+
+    .bg-dark.text-white p {
+        color: #ffffff !important;
+        /* Ensure all text inside the card is black */
+        font-size: 1.2rem;
+        /* Slightly larger font size for the main title */
+        font-weight: bold;
+        /* Make text bold */
+    }
+
+    .bg-dark.text-white .subtext {
+        font-size: 1rem;
+        /* Slightly smaller font size for the text under the title */
+        font-weight: normal;
+        /* Normal weight for the subtext */
+        color: #ffffff !important;
+        /* Ensure subtext is also black */
+    }
+
+    .bg-dark.text-white a {
+        background-color: #405c7b !important;
+        /* Darker shade for buttons */
+        color: #ffffff !important;
+    }
+
+    .bg-dark.text-white a:hover {
+        background-color: #405c7b !important;
+        /* Darker shade for hover */
+    }
+
+    /* Bottom Bar Styling */
+    .bottom-bar {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #f3e4c7;
+        /* Light sandy background */
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px 0;
+        z-index: 999;
+    }
+
+    .bottom-bar-item {
+        text-align: center;
+        color: #0a2240;
+        /* Dark blue for text and icons */
+        font-size: 12px;
+        transition: color 0.3s ease;
+    }
+
+    .bottom-bar-item i {
+        font-size: 18px;
+        margin-bottom: 5px;
+        display: block;
+        color: #0a2240;
+        /* Icon color */
+    }
+
+    .bottom-bar-item:hover {
+        color: #4fc3f7;
+        /* Hover effect with medium blue */
+    }
+
+    .bottom-bar-item:hover i {
+        color: #4fc3f7;
+        /* Icon hover effect */
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        .bottom-bar-item {
+            font-size: 11px;
+        }
+
+        .bottom-bar-item i {
+            font-size: 16px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .bottom-bar-item {
+            font-size: 10px;
+        }
+
+        .bottom-bar-item i {
+            font-size: 14px;
+        }
+    }
+
+    .service-box {
+        color: #000000 !important;
+        /* Set text color to black */
+    }
+</style>
+</head>
 
 <body id="page-top">
-    <section class="masthead">
+<section class="masthead">
 
-        <video autoplay muted loop>
-            <source src="assets/img/0313.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="video-overlay"></div>
+    <video autoplay muted loop>
         <source src="assets/img/0313.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="video-overlay"></div>
+    <source src="assets/img/0313.mp4" type="video/mp4">
 
-        <!-- شريط التنقل الرئيسي -->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-            <div class="container px-4 px-lg-5">
-                <!-- الشعار -->
-                <a class="navbar-brand" href="#page-top">
-                    <img src="assets/img/logo.png" alt="Logo" style="height: 100px; margin-right: 70px;" />
-                </a>
-                <!-- زر القائمة للشاشات الصغيرة -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <!-- شريط التنقل الرئيسي -->
+    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <!-- الشعار -->
+            <a class="navbar-brand" href="#page-top">
+                <img src="assets/img/logo.png" alt="Logo" />
+            </a>
+            <!-- زر القائمة للشاشات الصغيرة -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-
-
-                <!-- قائمة التنقل -->
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto text-end">
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="programsDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">خدماتنا</a>
-                            <ul class="dropdown-menu" aria-labelledby="programsDropdown">
-                                <li><a class="dropdown-item" href="programs.html">الاستشارات</a></li>
-                                <li><a class="dropdown-item" href="Awards.html">الجائزة</a></li>
-                                <li><a class="dropdown-item" href="index3.html"> الدبلوم و الدورات </a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="index.html">الصفحة الرئيسية</a></li>
-                    </ul>
-
-                    <!-- أيقونة حساب المستخدم -->
-                    <li class="nav-item" id="userIconContainer">
+            <!-- قائمة التنقل -->
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto text-end">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            خدماتنا
+                        </a>
+                        <ul class="dropdown-menu text-end" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="programs.html">برامج الدبلوم </a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#awardsModal">الجوائز</a></li>
+                                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                        data-bs-target="#contactModal">الاستشارات</a></li>
+                            <li><a class="dropdown-item" href="index3.html">الدبلوم والدورات</a></li>
+                        </ul>
                     </li>
-                    <!-- أيقونة حساب المستخدم -->
-                    <li class="nav-item" id="userIconContainer">
-                        <!-- سيتم تغيير هذه الأيقونة بناءً على حالة تسجيل الدخول باستخدام JavaScript -->
+                    <li class="nav-item"><a class="nav-link" href="index.html">الصفحة الرئيسية</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html"><i class="fas fa-user"></i></a>
                     </li>
-                </div>
-        </nav>
-        
-      <!-- شريط التنقل السفلي -->
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
-        <div class="container-fluid d-flex justify-content-center">
-            <ul class="navbar-nav">
-
-                <li class="nav-item">
-                    <a class="nav-link" href="FAQ.html">الأسئلة الشائعة</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html#contact-section">تواصل معنا</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="howIsUs.html">من نحن</a>
-                </li>
-            </ul>
+                </ul>
+            </div>
         </div>
     </nav>
+        <!-- شريط التنقل السفلي -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
+            <div class="container-fluid d-flex justify-content-center">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="FAQ.html">الأسئلة الشائعة</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact-section">تواصل معنا</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="howIsUs.html">من نحن</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
         <!-- رأس الصفحة (Masthead) -->
         <header class="masthead">
@@ -105,28 +375,382 @@
                         <a href="index3.html" class="btn btn-outline-light btn-lg me-2"><i
                                 class="fas fa-arrow-left me-2"></i> رجوع</a>
 
-                        <a href="#programs-section" class="btn btn-primary btn-lg w-50">اكتشف أكثر</a>
+                                <a href="#courses-section" class="btn btn-primary btn-lg w-50">اكتشف أكثر</a>
 
                     </div>
                 </div>
             </div>
 
 
-            <!-- التذييل -->
-            <!-- فوتر الموقع -->
-            <footer class="footer" style="background-color: #1E2D42; color: white;">
-                <div class="container px-4 px-lg-5 py-5">
+                 <!-- شريط العناوين -->
+<ul class="navbar-nav ms-auto d-flex flex-column align-items-center w-100">
+    <div class="d-flex justify-content-between w-100 bg-dark text-white p-3 rounded">
+        <!-- عناصر القائمة -->
+        <li class="nav-item flex-grow-1 text-center">
+            <a class="nav-link text-white fw-bold d-flex align-items-center justify-content-center" data-bs-toggle="collapse" data-bs-target="#rContent" aria-expanded="false">
+                اعتماد دولي للشهادات
+                <span class="ms-2">
+                    <i class="fas fa-chevron-down"></i>
+                </span>
+            </a>
+        </li>
+        <li class="nav-item flex-grow-1 text-center">
+            <a class="nav-link text-white fw-bold d-flex align-items-center justify-content-center" data-bs-toggle="collapse" data-bs-target="#jContent" aria-expanded="false">
+                تفاعلية الدورات الإلكترونية
+                <span class="ms-2">
+                    <i class="fas fa-chevron-down"></i>
+                </span>
+            </a>
+        </li>
+        <li class="nav-item flex-grow-1 text-center">
+            <a class="nav-link text-white fw-bold d-flex align-items-center justify-content-center" data-bs-toggle="collapse" data-bs-target="#dContent" aria-expanded="false">
+                مدربون معتمدون
+                <span class="ms-2">
+                    <i class="fas fa-chevron-down"></i>
+                </span>
+            </a>
+        </li>
+        <li class="nav-item flex-grow-1 text-center">
+            <a class="nav-link text-white fw-bold d-flex align-items-center justify-content-center" data-bs-toggle="collapse" data-bs-target="#tContent" aria-expanded="false">
+                مرونة جدول الدورات
 
+                <span class="ms-2">
+                    <i class="fas fa-chevron-down"></i>
+                </span>
+            </a>
+        </li>
+    </div>
+</ul>
+
+<!-- المحتوى القابل للطي -->
+<div class="w-100 p-3 accordion text-center" id="accordionExample">
+    <div id="tContent" class="collapse" data-bs-parent="#accordionExample">
+        <p class="border-bottom pb-2 d-flex justify-content-center"> تجدول الدورات كل شهر وتعاد حسب الطلب</p>
+
+       
+    </div>
+    <div id="dContent" class="collapse" data-bs-parent="#accordionExample">
+        <p class="border-bottom pb-2 d-flex justify-content-center">المدربين معتمدين من المنظمة</p>
+    </div>
+    <div id="jContent" class="collapse" data-bs-parent="#accordionExample">
+        <p class="border-bottom pb-2 d-flex justify-content-center"> تقدم الدورات اونلاين وتكون تفاعلية.</p>
+    </div>
+    <div id="rContent" class="collapse" data-bs-parent="#accordionExample">
+        <p class="border-bottom pb-2 d-flex justify-content-center">الدورات معتمدة دوليا وشهاداتها باجتياز اختبار.</p>
+    </div>
+</div>
+            
+            <!-- قسم المقررات الدراسية -->
+            <div class="mt-4 w-100" dir="rtl" id="courses-section">
+                <h3 class="text-center bg-dark text-white p-3 rounded">
+                    قائمة الدورات المفترحة تحت جائزة المنظمة العربية للسياحة في الجودة والتميز السياحي
+                </h3>
+                <div class="container mt-3">
+                    <div class="row g-4">
+            
+                        <!-- تكرار 18 مرة -->
+                        <div class="col-md-4">
+                            <div class="card text-center shadow-sm border-0">
+                                <div class="card-body">
+                                    <i class="fas fa-check-circle fa-3x mb-3 text-primary"></i>
+                                    <h5 class="card-title">نظام إدارة الجودة أيزو 9001 Quality Management System QMS</h5>
+                                    <a href="#" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#subscribeModal">سجل الآن</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card text-center shadow-sm border-0">
+                                <div class="card-body">
+                                    <i class="fas fa-leaf fa-3x mb-3 text-success"></i>
+                                    <h5 class="card-title">نظام إدارة البيئة آيزو 14001 Environmental Management System</h5>
+                                    <a href="#" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#subscribeModal">سجل الآن</a>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="col-md-4">
+                            <div class="card text-center shadow-sm border-0">
+                                <div class="card-body">
+                                    <i class="fas fa-heartbeat fa-3x mb-3 text-warning"></i>
+                                    <h5 class="card-title">نظام إدارة السلامة والصحة المهنية آيزو 45001 Occupational Health and Safety</h5>
+                                    <a href="#" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#subscribeModal">سجل الآن</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card text-center shadow-sm border-0">
+                                <div class="card-body">
+                                    <i class="fas fa-bolt fa-3x mb-3 text-info"></i>
+                                    <h5 class="card-title">نظام إدارة الطاقة آيزو 50001 Energy Management System</h5>
+                                    <a href="#" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#subscribeModal">سجل الآن</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card text-center shadow-sm border-0">
+                                <div class="card-body">
+                                    <i class="fas fa-shield-alt fa-3x mb-3 text-info"></i>
+                                    <h5 class="card-title">نظام إدارة أمن المعلومات أيزو 27001 Information Security System</h5>
+                                    <a href="#" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#subscribeModal">سجل الآن</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card text-center shadow-sm border-0">
+                                <div class="card-body">
+                                    <i class="fas fa-sync fa-3x mb-3 text-success"></i>
+                                    <h5 class="card-title">استمرارية الأعمال ايزو 22301:2019 BCMS</h5>
+                                    <a href="#" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#subscribeModal">سجل الآن</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card text-center shadow-sm border-0">
+                                <div class="card-body">
+                                    <i class="fas fa-building fa-3x mb-3 text-primary"></i>
+                                    <h5 class="card-title">الايزو 37000 حوكمة الشركات EBMS</h5>
+                                    <a href="#" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#subscribeModal">سجل الآن</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card text-center shadow-sm border-0">
+                                <div class="card-body">
+                                    <i class="fas fa-flask fa-3x mb-3 text-warning"></i>
+                                    <h5 class="card-title">الآيزو 17025:2017 نظام إدارة المعامل والمختبرات LQMS</h5>
+                                    <a href="#" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#subscribeModal">سجل الآن</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card text-center shadow-sm border-0">
+                                <div class="card-body">
+                                    <i class="fas fa-stethoscope fa-3x mb-3 text-danger"></i>
+                                    <h5 class="card-title">الآيزو 13485:2016 نظام إدارة الأجهزة الطبية MD-QMS</h5>
+                                    <a href="#" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#subscribeModal">سجل الآن</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card text-center shadow-sm border-0">
+                                <div class="card-body">
+                                    <i class="fas fa-vials fa-3x mb-3 text-info"></i>
+                                    <h5 class="card-title">الايزو 15189:2022 نظام إدارة المختبرات الطبية MLMS</h5>
+                                    <a href="#" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#subscribeModal">سجل الآن</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card text-center shadow-sm border-0">
+                                <div class="card-body">
+                                    <i class="fas fa-laptop-code fa-3x mb-3 text-purple"></i>
+                                    <h5 class="card-title">نظام إدارة وتقنية المعلومات أيزو 20000:2018 IT-SM</h5>
+                                    <a href="#" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#subscribeModal">سجل الآن</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card text-center shadow-sm border-0">
+                                <div class="card-body">
+                                    <i class="fas fa-map-marker-alt fa-3x mb-3 text-success"></i>
+                                    <h5 class="card-title">ايزو 21902 السياحة الميسرة</h5>
+                                    <a href="#" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#subscribeModal">سجل الآن</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card text-center shadow-sm border-0">
+                                <div class="card-body">
+                                    <i class="fas fa-building fa-3x mb-3 text-primary"></i>
+                                    <h5 class="card-title">21401 الاستدامة في الفنادق</h5>
+                                    <a href="#" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#subscribeModal">سجل الآن</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card text-center shadow-sm border-0">
+                                <div class="card-body">
+                                    <i class="fas fa-utensils fa-3x mb-3 text-danger"></i>
+                                    <h5 class="card-title">نظام سلامة الغذاء آيزو 22000 Food Safety Management System</h5>
+                                    <a href="#" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#subscribeModal">سجل الآن</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card text-center shadow-sm border-0">
+                                <div class="card-body">
+                                    <i class="fas fa-lock fa-3x mb-3 text-warning"></i>
+                                    <h5 class="card-title">ايزو 18788:2015 - إدارة أمن المرافق</h5>
+                                    <a href="#" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#subscribeModal">سجل الآن</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card text-center shadow-sm border-0">
+                                <div class="card-body">
+                                    <i class="fas fa-shield-alt fa-3x mb-3 text-secondary"></i>
+                                    <h5 class="card-title">النيوش GC1- GC2</h5>
+                                    <a href="#" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#subscribeModal">سجل الآن</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card text-center shadow-sm border-0">
+                                <div class="card-body">
+                                    <i class="fas fa-award fa-3x mb-3 text-purple"></i>
+                                    <h5 class="card-title">النيبوش دبلوم AI-BI-CI</h5>
+                                    <a href="#" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#subscribeModal">سجل الآن</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card text-center shadow-sm border-0">
+                                <div class="card-body">
+                                    <i class="fas fa-first-aid fa-3x mb-3 text-danger"></i>
+                                    <h5 class="card-title">نظام إدارة السلامة والصحة المهنية حسب معايير الاوشا OSHA</h5>
+                                    <a href="#" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#subscribeModal">سجل الآن</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- نهاية التكرار -->
+                    </div>
+                </div>
+            </div>
+
+
+            
+            <!-- نافذة منبثقة للاشتراك -->
+            <div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="subscribeModalLabel">الاشتراك في الدبلوم</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">*الاسم الكامل</label>
+                                    <input type="text" class="form-control" id="name" placeholder="محمد أحمد" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">*البريد الإلكتروني</label>
+                                    <input type="email" class="form-control" id="email"
+                                        placeholder="e.g., name@example.com" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="birthdate" class="form-label">*تاريخ الميلاد</label>
+                                    <div class="d-flex">
+                                        <input type="number" class="form-control" id="day" placeholder="اليوم" required
+                                            style="max-width: 80px;">
+                                        <input type="number" class="form-control mx-2" id="month" placeholder="الشهر"
+                                            required style="max-width: 80px;">
+                                        <input type="number" class="form-control" id="year" placeholder="السنة" required
+                                            style="max-width: 80px;">
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">*رقم الهاتف</label>
+                                    <input type="tel" class="form-control" id="phone" placeholder="e.g., +966" required>
+                                </div>
+                                <div class="mb-3">
+                                    <select class="form-select" id="country" required>
+                                        <option value="" disabled selected>أختار من القائمة</option>
+                                        <option value="sa">السعودية</option>
+                                        <option value="ae">الإمارات</option>
+                                        <option value="kw">الكويت</option>
+                                        <option value="qa">قطر</option>
+                                        <option value="bh">البحرين</option>
+                                        <option value="om">سلطنة عمان</option>
+                                        <option value="ye">اليمن</option>
+                                        <option value="jo">الأردن</option>
+                                        <option value="ps">فلسطين</option>
+                                        <option value="sy">سوريا</option>
+                                        <option value="lb">لبنان</option>
+                                        <option value="eg">مصر</option>
+                                        <option value="tn">تونس</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="linkedin" class="form-label">الملف الشخصي على اللينكدان أو الموقع الشخصي
+                                        (اختياري)</label>
+                                    <input type="url" class="form-control" id="linkedin"
+                                        placeholder="https://linkedin.com/in/mohammed">
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" id="confirm" required>
+                                    <label class="form-check-label" for="confirm">
+                                        *أؤكد أن جميع المعلومات المقدمة صحيحة ودقيقة على حد علمي.
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                            <button type="submit" class="btn btn-primary" id="submitBtn">إرسال التسجيل</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- التذييل -->
+
+            <section id="contact-section" class="py-5 position-relative">
+                <div class="contact-overlay"></div>
+                <div class="container text-center position-relative">
+                    <h2 class="mb-4 fw-bold text-white" style="font-family: 'Cairo', sans-serif; font-size: 2.5rem;">تواصل
+                        معنا</h2>
+                    <div class="d-flex justify-content-center gap-3 mb-4">
+                        <button id="emailToggleBtn" class="btn btn-sandy rounded-pill px-4 py-2 shadow-lg">
+                            تواصل عبر البريد الإلكتروني
+                        </button>
+                        <button id="whatsappToggleBtn" class="btn btn-sandy rounded-pill px-4 py-2 shadow-lg">
+                            <i class="fab fa-whatsapp me-2"></i>تواصل عبر واتساب
+                        </button>
+                    </div>
+                    <div id="contactFormWrapper" class="d-none">
+                        <form id="contactForm" class="p-4 rounded shadow-lg mx-auto"
+                            style="max-width: 450px; background: rgba(255, 255, 255, 0.9); border-radius: 15px;">
+                            <div class="mb-3">
+                                <input type="text" class="form-control form-control-lg text-end" placeholder="اسمك الكامل"
+                                    required
+                                    style="background: #fdf8f0; border: none; border-radius: 10px; color: #6b5e4e; font-size: 1rem; padding: 1rem;">
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control form-control-lg text-end"
+                                    placeholder="بريدك الإلكتروني" required
+                                    style="background: #fdf8f0; border: none; border-radius: 10px; color: #6b5e4e; font-size: 1rem; padding: 1rem;">
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control form-control-lg text-end" rows="4"
+                                    placeholder="اكتب رسالتك هنا" required
+                                    style="background: #fdf8f0; border: none; border-radius: 10px; color: #6b5e4e; font-size: 1rem; padding: 1rem;"></textarea>
+                            </div>
+                            <button type="submit"
+                                class="btn btn-sandy w-100 rounded-pill px-4 py-2 shadow-lg">إرسال</button>
+                        </form>
+                        <footer class="footer position-relative"
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1;">
+                </div>
+                <div class="container px-4 px-lg-5 py-5 position-relative" style="z-index: 2;">
                     <div class="row">
                         <div class="col-lg-4 mb-4 text-center">
                             <!-- الشعار -->
                             <div class="mb-4">
-                                <img src="assets/img/logo1.avif" alt="شعار الشركة" class="img-fluid"
-                                    style="max-width: 200px;" />
+                                <img src="assets/img/uality.png" alt="شعار الشركة" class="img-fluid"
+                                    style="max-width: 90px;" />
                             </div>
-                            <p>إدارة وتشغيل شركة تطبيقات الجودة الإدارية</p>
+                            <p>
+                                إدارة وتشغيل شركة تطبيقات الجودة الإدارية
+                            </p>
                         </div>
-
+    
                         <div class="col-lg-4 mb-4 text-center">
                             <!-- تواصل معنا -->
                             <h5 class="mb-3"><strong>تواصل معنا</strong></h5>
@@ -136,7 +760,7 @@
                                     <i class="fas fa-envelope me-2"></i>info@qetourism.com
                                 </a>
                             </p>
-
+    
                             <!-- روابط التواصل الاجتماعي -->
                             <div class="social d-flex justify-content-center mt-4">
                                 <a class="mx-2 text-white"
@@ -144,15 +768,18 @@
                                     target="_blank">
                                     <i class="fab fa-facebook-f fa-lg"></i>
                                 </a>
-                                <a class="mx-2 text-white" href="https://www.instagram.com/tourism_aqa/"
+                                <a class="mx-2 text-white"
+                                    href="https://www.instagram.com/arabtourismorg?igsh=MW14Z3E2MTFnaWpycQ=="
                                     target="_blank">
                                     <i class="fab fa-instagram fa-lg"></i>
                                 </a>
-                                <a class="mx-2 text-white" href="https://x.com/JayztAl66930" target="_blank">
-                                    <i class="fab fa-twitter fa-lg"></i>
+                                <a class="mx-2 text-white" href="https://x.com/qetourism?s=21" target="_blank">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/X_logo_2023.svg" alt="X"
+                                        style="height: 24px; vertical-align: middle;" />
                                 </a>
+    
                                 <a class="mx-2 text-white"
-                                    href="https://www.linkedin.com/company/%D8%AC%D8%A7%D8%A6%D8%B2%D8%A9-%D8%A7%D9%84%D9%85%D9%86%D8%B8%D9%85%D8%A9-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-%D9%84%D9%84%D8%B3%D9%8A%D8%A7%D8%AD%D8%A9-%D9%81%D9%8A-%D8%A7%D9%84%D8%AC%D9%88%D8%AF%D8%A9-%D9%88%D8%A7%D9%84%D8%AA%D9%85%D9%8A%D8%B2-%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%AD%D9%8A/about/?viewAsMember=true"
+                                    href="https://www.linkedin.com/company/%D8%AC%D8%A7%D8%A6%D8%B2%D8%A9-%D8%A7%D9%84%D9%85%D9%86%D8%B8%D9%85%D8%A9-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-%D9%84%D8%B3%D9%8A%D8%A7%D8%AD%D8%A9-%D9%81%D9%8A-%D8%A7%D9%84%D8%AC%D9%88%D8%AF%D8%A9-%D9%88%D8%A7%D9%84%D8%AA%D9%85%D9%8A%D8%B2-%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%AD%D9%8A/about/?viewAsMember=true"
                                     target="_blank">
                                     <i class="fab fa-linkedin fa-lg"></i>
                                 </a>
@@ -163,7 +790,7 @@
                                 </a>
                             </div>
                         </div>
-
+    
                         <div class="col-lg-4 mb-4 text-center">
                             <!-- روابط السياسات والحقوق -->
                             <h5 class="mb-3"><strong>الروابط</strong></h5>
@@ -175,7 +802,7 @@
                             </div>
                         </div>
                     </div>
-
+    
                     <!-- حقوق الملكية -->
                     <hr class="my-4" style="border-color: rgba(255,255,255,0.2);">
                     <p class="text-center mb-0">
@@ -183,6 +810,125 @@
                     </p>
                 </div>
             </footer>
+                    </div>
+                </div>
+                <a href="https://api.whatsapp.com/send/?phone=966599099224" target="_blank" class="whatsapp-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <style>
+                    #contact-section {
+                        background: url('assets/img/contact.jpeg') no-repeat center center/cover;
+                        /* Use contact.jpeg as background */
+                        position: relative;
+                        color: white;
+                    }
+    
+                    .contact-overlay {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0, 0, 0, 0.5);
+                        /* Optional dark overlay */
+                        z-index: 1;
+                    }
+    
+                    #contact-section .container {
+                        z-index: 2;
+                    }
+    
+                    .btn-beige {
+                        background-color: #f1d6a5;
+                        /* Beige color */
+                        color: #000;
+                        border: none;
+                        transition: background-color 0.3s ease;
+                        font-size: 1rem;
+                        padding: 0.5rem 2.5rem;
+                        /* Increased padding for wider buttons */
+                    }
+    
+                    .btn-beige:hover {
+                        background-color: #e3cba8;
+                    }
+    
+                    #contactForm {
+                        border: 1px solid #ddd;
+                        backdrop-filter: blur(10px);
+                        /* Adds a subtle blur effect */
+                    }
+    
+                    #contactForm .form-control {
+                        border-radius: 10px;
+                        border: 1px solid #ccc;
+                    }
+    
+                    #contactForm .form-control:focus {
+                        border-color: #f1d6a5;
+                        box-shadow: 0 0 5px rgba(241, 214, 165, 0.5);
+                    }
+    
+                    .whatsapp-icon {
+                        position: fixed;
+                        bottom: 20px;
+                        right: 20px;
+                        background-color: #25d366;
+                        color: white;
+                        font-size: 24px;
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                        z-index: 1000;
+                    }
+    
+                    .whatsapp-icon:hover {
+                        background-color: #1ebe57;
+                    }
+    
+                    @media (max-width: 768px) {
+                        #contactForm {
+                            max-width: 100%;
+                            /* Full width on smaller devices */
+                            padding: 2rem;
+                        }
+    
+                        .btn-beige {
+                            font-size: 0.9rem;
+                            /* Adjust button size for smaller screens */
+                            padding: 0.4rem 2rem;
+                            /* Adjust padding for smaller screens */
+                        }
+                    }
+    
+                    @media (max-width: 576px) {
+                        .d-flex.gap-3 {
+                            flex-direction: column;
+                        }
+    
+                        .btn-beige {
+                            font-size: 0.85rem;
+                            /* Further adjust button size for very small screens */
+                            padding: 0.3rem 1.8rem;
+                            /* Further adjust padding for very small screens */
+                        }
+                    }
+                </style>
+            </section>
+            <script>
+                document.getElementById("emailToggleBtn").addEventListener("click", function () {
+                    const formWrapper = document.getElementById("contactFormWrapper");
+                    formWrapper.classList.toggle("d-none");
+                });
+    
+                document.getElementById("whatsappToggleBtn").addEventListener("click", function () {
+                    window.open("https://api.whatsapp.com/send/?phone=966599099224", "_blank");
+                });
+            </script>
 
 
 
@@ -195,7 +941,32 @@
             <!-- إضافة ملفات JavaScript الخاصة بـ Bootstrap في أسفل الصفحة -->
             <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+<!-- تضمين JavaScript -->
+<script>
+    let lastScrollTop = 0; // تخزين موقع التمرير السابق
+const bottomNavbar = document.querySelector('.navbar.fixed-bottom'); // تحديد شريط التنقل السفلي
+
+window.addEventListener('scroll', () => {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+        // إذا كان المستخدم يمرر لأسفل
+        bottomNavbar.classList.add('navbar-hidden');
+    } else {
+        // إذا كان المستخدم يمرر لأعلى
+        bottomNavbar.classList.remove('navbar-hidden');
+    }
+
+    lastScrollTop = scrollTop; // تحديث موقع التمرير السابق
+});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </body>
 
 </html>
